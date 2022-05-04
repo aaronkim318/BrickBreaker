@@ -39,6 +39,12 @@ namespace BrickBreaker
 
         #endregion
 
+        int hitCheck = 0;
+        
+        Random randGen = new Random(5);
+        
+        
+
         public GameScreen()
         {
             InitializeComponent();
@@ -72,10 +78,13 @@ namespace BrickBreaker
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
+            //Billy's Variables 
+           
+
             #region Creates blocks for generic level. Need to replace with code that loads levels.
-            
+
             //TODO - replace all the code in this region eventually with code that loads levels from xml files
-            
+
             blocks.Clear();
             int x = 10;
 
@@ -123,6 +132,13 @@ namespace BrickBreaker
                     break;
             }
         }
+        public void PowerUps ()
+        {
+            if(hitCheck = )
+            {
+
+            }
+        }
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
@@ -167,6 +183,9 @@ namespace BrickBreaker
                 if (ball.BlockCollision(b))
                 {
                     blocks.Remove(b);
+
+                    //what i have so far but put into method
+                    hitCheck = hitCheck + 1;
 
                     if (blocks.Count == 0)
                     {
