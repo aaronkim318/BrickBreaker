@@ -75,6 +75,7 @@ namespace BrickBreaker
             #region Creates blocks for generic level. Need to replace with code that loads levels.
             
             //TODO - replace all the code in this region eventually with code that loads levels from xml files
+            //wait until adrian is done making the levels and importing them into an xml file
             
             blocks.Clear();
             int x = 10;
