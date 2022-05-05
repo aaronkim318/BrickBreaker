@@ -39,16 +39,13 @@ namespace BrickBreaker
 
         #endregion
 
+        //bill
         int hitCheck = 0;
-        
-        Random randGen = new Random(5);
-        
-        
-
         public GameScreen()
         {
             InitializeComponent();
             OnStart();
+           
         }
 
 
@@ -78,7 +75,7 @@ namespace BrickBreaker
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
-            //Billy's Variables 
+         
            
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
@@ -134,14 +131,29 @@ namespace BrickBreaker
         }
         public void PowerUps ()
         {
-            if(hitCheck = )
-            {
+        //     int hitCheck = 0;
+        
+        //Random randGen = new Random();
+        //    int randNum = randGen.Next(0, 10);
 
-            }
+        //      foreach (Block b in blocks)
+        //    {
+        //        if (ball.BlockCollision(b))
+        //        {
+        //         hitCheck +=  1;
+        //        }
+        //     }
+
+        //    if(hitCheck == 1)
+        //    {
+        //        paddle.width = 150;
+        //    }
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+
+            
             // Move the paddle
             if (leftArrowDown && paddle.x > 0)
             {
@@ -183,9 +195,8 @@ namespace BrickBreaker
                 if (ball.BlockCollision(b))
                 {
                     blocks.Remove(b);
-
-                    //what i have so far but put into method
-                    hitCheck = hitCheck + 1;
+                    //bill
+                    hitCheck += 1;
 
                     if (blocks.Count == 0)
                     {
@@ -197,8 +208,14 @@ namespace BrickBreaker
                 }
             }
 
-            //redraw the screen
-            Refresh();
+            //bill
+            if (hitCheck == 1)
+                  {
+                       paddle.width = 150;
+                  }
+
+                //redraw the screen
+                Refresh();
         }
 
         public void OnEnd()
