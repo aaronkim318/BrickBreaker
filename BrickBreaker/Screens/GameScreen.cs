@@ -142,7 +142,7 @@ namespace BrickBreaker
             // Check for collision with top and side walls
             ball.WallCollision(this);
 
-            // Check for ball hitting bottom of screen
+            // Check for ball hitting bottom of screen and end game if lives = 0
             if (ball.BottomCollision(this))
             {
                 lives--;

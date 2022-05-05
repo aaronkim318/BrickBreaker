@@ -27,6 +27,8 @@ namespace BrickBreaker
             y = y + ySpeed;
         }
 
+
+        // checks if ball hits a block and returs it to game screen 
         public bool BlockCollision(Block b)
         {
             Rectangle blockRec = new Rectangle(b.x, b.y, b.width, b.height);
@@ -40,17 +42,27 @@ namespace BrickBreaker
             return blockRec.IntersectsWith(ballRec);
         }
 
+        //checks if ball hits paddle 
         public void PaddleCollision(Paddle p)
         {
             Rectangle ballRec = new Rectangle(x, y, size, size);
             Rectangle paddleRec = new Rectangle(p.x, p.y, p.width, p.height);
 
+
+            //revereses speed on contact 
             if (ballRec.IntersectsWith(paddleRec))
             {
+                //ballRec.Y = paddleRec.Y + ballRec.Height + 100;
+                
+                
                 ySpeed *= -1;
+                
+                
+                
             }
         }
 
+        //check if ball hits wall 
         public void WallCollision(UserControl UC)
         {
             // Collision with left wall
@@ -70,6 +82,8 @@ namespace BrickBreaker
             }
         }
 
+
+        //check if ball hits bottom and returns the value back to game screen
         public bool BottomCollision(UserControl UC)
         {
             Boolean didCollide = false;
