@@ -22,59 +22,50 @@ namespace BrickBreaker
         public MenuScreen()
         {
             InitializeComponent();
-            Juanmethod_FlyingSquare(); //Declares the new square method
-            Juanmethod_MovingSquares(); //Declares the move method
+            JuanMethod_FlyingSquares(); //Declares the new square method
         }
 
-        public void Juanmethod_FlyingSquare() //Method meant to create flying squares (JUAN)
+        public void JuanMethod_FlyingSquares()  //method meant for creating and putting the squares into a list (JUAN)
         {
-
-            for (int i = 0; i < 5; i++) //for loop to create the limit of square
-            {
-                JuanMethod_NewFlyingSquares();
-            }
-
-        }
-
-        public void JuanMethod_NewFlyingSquares()  //method meant for creating and putting the squares into a list (JUAN)
-        {
-
+            for (int i = 0; i < 5; i++) { //for loop to create the limit of square 
+                
             screenSize = new Size(this.Width, this.Height);
 
-            int x = randGen.Next(40, screenSize.Width - 40);
             int y = randGen.Next(40, screenSize.Height - 40);
 
-            Rectangle AmongOne = new Rectangle(x, y, 8, 8);
+            Rectangle AmongOne = new Rectangle(0, y, 15, 15);
             SquareList.Add(AmongOne);
+         //       sleep(1000);
+        }
 
         }
 
-        public void Juanmethod_MovingSquares() //Method meant for moving the squares (JUAN)
+        private void gameTimer_Tick(object sender, EventArgs e)
         {
-            int xspeed = 4;
-
+            int xspeed = 8;
 
             for (int i = 0; i < SquareList.Count; i++)
             {
                 int x = SquareList[i].X + xspeed;
                 SquareList[i] = new Rectangle(x, SquareList[i].Y, SquareList[i].Width, SquareList[i].Height);
-            }
 
-            //foreach (Rectangle rec in SquareList)
+            // if (SquareList[i].X >= 167)
             //{
-            //    if (rec.X <= 1067)
-            //    {
-            //        int x = randGen.Next(40, screenSize.Width - 40);
-            //    }
+            //  x = 0;
             //}
 
+            }
+            Refresh();
         }
+
 
         private void MenuScreen_Paint(object sender, PaintEventArgs e)
         {
-            foreach (Rectangle rec in SquareList)
+            int randColour = randGen.Next(1,5);
+
+            for (int i = 0; i < SquareList.Count; i++)
             {
-                e.Graphics.FillRectangle(Brushes.Green, rec.X, rec.Y, rec.Width, rec.Height);
+                e.Graphics.FillRectangle(Brushes.Green, SquareList[i].X, SquareList[i].Y, SquareList[i].Width, SquareList[i].Height);
             }
 
         }
@@ -96,7 +87,5 @@ namespace BrickBreaker
         {
             Application.Exit();
         }
-
-
     }
 }

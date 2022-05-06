@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuScreen));
             this.playButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
             this.howToButton = new System.Windows.Forms.Button();
+            this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // playButton
@@ -43,7 +45,7 @@
             this.playButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.playButton.Font = new System.Drawing.Font("OCR A Extended", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.playButton.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.playButton.Location = new System.Drawing.Point(218, 480);
             this.playButton.Margin = new System.Windows.Forms.Padding(4);
             this.playButton.Name = "playButton";
@@ -59,7 +61,7 @@
             this.exitButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("OCR A Extended", 24F, System.Drawing.FontStyle.Bold);
-            this.exitButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.exitButton.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.exitButton.Location = new System.Drawing.Point(568, 480);
             this.exitButton.Margin = new System.Windows.Forms.Padding(4);
             this.exitButton.Name = "exitButton";
@@ -89,7 +91,7 @@
             this.howToButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.howToButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.howToButton.Font = new System.Drawing.Font("OCR A Extended", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.howToButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.howToButton.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.howToButton.Location = new System.Drawing.Point(343, 605);
             this.howToButton.Margin = new System.Windows.Forms.Padding(4);
             this.howToButton.Name = "howToButton";
@@ -97,6 +99,12 @@
             this.howToButton.TabIndex = 3;
             this.howToButton.Text = "How To Play";
             this.howToButton.UseVisualStyleBackColor = false;
+            // 
+            // gameTimer
+            // 
+            this.gameTimer.Enabled = true;
+            this.gameTimer.Interval = 300;
+            this.gameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
             // 
             // MenuScreen
             // 
@@ -123,5 +131,6 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Button howToButton;
+        private System.Windows.Forms.Timer gameTimer;
     }
 }
