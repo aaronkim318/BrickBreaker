@@ -42,10 +42,15 @@ namespace BrickBreaker
 
         #endregion
 
+        //bill
+        int hitCheck = 0;
+        Random randGen = new Random(6);
+       // int randNum = randGen.Next(0, 10);
         public GameScreen()
         {
             InitializeComponent();
             OnStart();
+           
         }
 
 
@@ -75,11 +80,13 @@ namespace BrickBreaker
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
+         
+           
+
             #region Creates blocks for generic level. Need to replace with code that loads levels.
-            
+             //wait until adrian is done making the levels and importing them into an xml file
+
             //TODO - replace all the code in this region eventually with code that loads levels from xml files
-            //wait until adrian is done making the levels and importing them into an xml file
-            
             blocks.Clear();
             int x = 10;
 
@@ -130,9 +137,31 @@ namespace BrickBreaker
                     break;
             }
         }
+        public void PowerUps ()
+        {
+        //     int hitCheck = 0;
+        
+        //Random randGen = new Random();
+        //    int randNum = randGen.Next(0, 10);
+
+        //      foreach (Block b in blocks)
+        //    {
+        //        if (ball.BlockCollision(b))
+        //        {
+        //         hitCheck +=  1;
+        //        }
+        //     }
+
+        //    if(hitCheck == 1)
+        //    {
+        //        paddle.width = 150;
+        //    }
+        }
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+
+            
             // Move the paddle
             if (leftArrowDown && paddle.x > 0)
             {
@@ -182,6 +211,8 @@ namespace BrickBreaker
                 if (ball.BlockCollision(b))
                 {
                     blocks.Remove(b);
+                    //bill
+                    hitCheck += 1;
 
                     if (blocks.Count == 0)
                     {
@@ -193,8 +224,14 @@ namespace BrickBreaker
                 }
             }
 
-            //redraw the screen
-            Refresh();
+            //bill
+            if (hitCheck == )
+                  {
+                       paddle.width = 150;
+                  }
+
+                //redraw the screen
+                Refresh();
         }
 
         public void OnEnd()
