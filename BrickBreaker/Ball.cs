@@ -29,7 +29,7 @@ namespace BrickBreaker
         }
 
 
-        // checks if ball hits a block and returs it to game screen 
+        // checks if ball hits a block and returns it to game screen 
         public bool BlockCollision(Block b)
         {
             Rectangle blockRec = new Rectangle(b.x, b.y, b.width, b.height);
@@ -38,7 +38,17 @@ namespace BrickBreaker
             if (ballRec.IntersectsWith(blockRec))
             {
 
-                //y = b.y + y;
+               //checks to see where the ball collides
+                if(ySpeed > 0)
+                {
+                    y = b.y-size;
+                   
+                }
+                else
+                {
+                    y = b.y + size;
+                }
+
                 ySpeed *= -1;
             }
 
@@ -51,17 +61,14 @@ namespace BrickBreaker
             Rectangle ballRec = new Rectangle(x, y, size, size);
             Rectangle paddleRec = new Rectangle(p.x, p.y, p.width, p.height);
 
-
             //revereses speed on contact 
             if (ballRec.IntersectsWith(paddleRec))
             {
-
                 //moves ball above paddle 
                 y = p.y - size;
 
                 ySpeed *= -1;
-                   
-                
+
             }
         }
 
