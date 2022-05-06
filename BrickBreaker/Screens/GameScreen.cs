@@ -165,7 +165,7 @@ namespace BrickBreaker
             // Move the paddle
             if (leftArrowDown && paddle.x > 0)
             {
-                paddle.Move("left");
+                paddle.Move("left"); 
             }
             if (rightArrowDown && paddle.x < (this.Width - paddle.width))
             {

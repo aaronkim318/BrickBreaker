@@ -8,6 +8,7 @@ namespace BrickBreaker
     {
         public int x, y, xSpeed, ySpeed, size;
         public Color colour;
+        //int randgen = new Random();
 
         public static Random rand = new Random();
 
@@ -28,7 +29,7 @@ namespace BrickBreaker
         }
 
 
-        // checks if ball hits a block and returs it to game screen 
+        // checks if ball hits a block and returns it to game screen 
         public bool BlockCollision(Block b)
         {
             Rectangle blockRec = new Rectangle(b.x, b.y, b.width, b.height);
@@ -36,6 +37,8 @@ namespace BrickBreaker
 
             if (ballRec.IntersectsWith(blockRec))
             {
+
+               //checks to see where the ball collides
                 if(ySpeed > 0)
                 {
                     y = b.y-size;
@@ -45,6 +48,7 @@ namespace BrickBreaker
                 {
                     y = b.y + size;
                 }
+
                 ySpeed *= -1;
             }
 
@@ -60,7 +64,9 @@ namespace BrickBreaker
             //revereses speed on contact 
             if (ballRec.IntersectsWith(paddleRec))
             {
+                //moves ball above paddle 
                 y = p.y - size;
+
                 ySpeed *= -1;
 
             }
