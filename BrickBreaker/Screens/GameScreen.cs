@@ -44,8 +44,10 @@ namespace BrickBreaker
 
         //bill
         int hitCheck = 0;
-        Random randGen = new Random(6);
-       // int randNum = randGen.Next(0, 10);
+        Random randGen = new Random();
+        int randNum = 0;
+        
+      
         public GameScreen()
         {
             InitializeComponent();
@@ -137,25 +139,9 @@ namespace BrickBreaker
                     break;
             }
         }
-        public void PowerUps ()
+        public void PowerUps()
         {
-        //     int hitCheck = 0;
-        
-        //Random randGen = new Random();
-        //    int randNum = randGen.Next(0, 10);
-
-        //      foreach (Block b in blocks)
-        //    {
-        //        if (ball.BlockCollision(b))
-        //        {
-        //         hitCheck +=  1;
-        //        }
-        //     }
-
-        //    if(hitCheck == 1)
-        //    {
-        //        paddle.width = 150;
-        //    }
+            
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
@@ -225,10 +211,10 @@ namespace BrickBreaker
             }
 
             //bill
-            //if (hitCheck ==)
-            //      {
-            //           paddle.width = 150;
-            //      }
+            if (hitCheck == randNum)
+                  {
+                       paddle.width = 150;
+                  }
 
                 //redraw the screen
                 Refresh();
