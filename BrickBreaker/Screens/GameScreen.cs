@@ -20,7 +20,10 @@ namespace BrickBreaker
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
-        Boolean leftArrowDown, rightArrowDown;
+        Boolean leftArrowDown, rightArrowDown, spaceDown;
+
+        //boolean for the ball movement
+        Boolean ballStart;
 
         // Game values
         int lives;
@@ -39,10 +42,15 @@ namespace BrickBreaker
 
         #endregion
 
+        //bill
+        int hitCheck = 0;
+        Random randGen = new Random(6);
+       // int randNum = randGen.Next(0, 10);
         public GameScreen()
         {
             InitializeComponent();
             OnStart();
+           
         }
 
 
@@ -72,17 +80,20 @@ namespace BrickBreaker
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
+         
+           
+
             #region Creates blocks for generic level. Need to replace with code that loads levels.
-            
+             //wait until adrian is done making the levels and importing them into an xml file
+
             //TODO - replace all the code in this region eventually with code that loads levels from xml files
-            
             blocks.Clear();
             int x = 10;
 
             while (blocks.Count < 12)
             {
                 x += 57;
-                Block b1 = new Block(x, 10, 1, Color.White);
+                Block b1 = new Block(x, 100, 1, Color.White);
                 blocks.Add(b1);
             }
 
@@ -103,8 +114,10 @@ namespace BrickBreaker
                 case Keys.Right:
                     rightArrowDown = true;
                     break;
-                default:
+                case Keys.Space:
+                    spaceDown = true;
                     break;
+
             }
         }
 
@@ -119,30 +132,60 @@ namespace BrickBreaker
                 case Keys.Right:
                     rightArrowDown = false;
                     break;
-                default:
+                case Keys.Space:
+                    spaceDown = false;
                     break;
             }
+        }
+        public void PowerUps ()
+        {
+        //     int hitCheck = 0;
+        
+        //Random randGen = new Random();
+        //    int randNum = randGen.Next(0, 10);
+
+        //      foreach (Block b in blocks)
+        //    {
+        //        if (ball.BlockCollision(b))
+        //        {
+        //         hitCheck +=  1;
+        //        }
+        //     }
+
+        //    if(hitCheck == 1)
+        //    {
+        //        paddle.width = 150;
+        //    }
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+
+            
             // Move the paddle
             if (leftArrowDown && paddle.x > 0)
             {
-                paddle.Move("left");
+                paddle.Move("left"); 
             }
             if (rightArrowDown && paddle.x < (this.Width - paddle.width))
             {
                 paddle.Move("right");
             }
 
-            // Move ball
-            ball.Move();
+            if(spaceDown == true)
+            {
+                ballStart = true;
+            }
+           if(ballStart == true)
+            {
+                //moves the ball
+                ball.Move();
+            }
 
             // Check for collision with top and side walls
             ball.WallCollision(this);
 
-            // Check for ball hitting bottom of screen
+            // Check for ball hitting bottom of screen and end game if lives = 0
             if (ball.BottomCollision(this))
             {
                 lives--;
@@ -156,6 +199,7 @@ namespace BrickBreaker
                     gameTimer.Enabled = false;
                     OnEnd();
                 }
+                ballStart = false;
             }
 
             // Check for collision of ball with paddle, (incl. paddle movement)
@@ -167,6 +211,8 @@ namespace BrickBreaker
                 if (ball.BlockCollision(b))
                 {
                     blocks.Remove(b);
+                    //bill
+                    hitCheck += 1;
 
                     if (blocks.Count == 0)
                     {
@@ -178,8 +224,14 @@ namespace BrickBreaker
                 }
             }
 
-            //redraw the screen
-            Refresh();
+            //bill
+            //if (hitCheck ==)
+            //      {
+            //           paddle.width = 150;
+            //      }
+
+                //redraw the screen
+                Refresh();
         }
 
         public void OnEnd()
