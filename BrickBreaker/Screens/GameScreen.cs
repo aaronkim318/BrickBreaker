@@ -225,10 +225,10 @@ namespace BrickBreaker
             }
 
             //bill
-            if (hitCheck == )
-                  {
-                       paddle.width = 150;
-                  }
+            //if (hitCheck ==)
+            //      {
+            //           paddle.width = 150;
+            //      }
 
                 //redraw the screen
                 Refresh();
