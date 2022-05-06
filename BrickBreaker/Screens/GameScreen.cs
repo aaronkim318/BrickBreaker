@@ -20,7 +20,10 @@ namespace BrickBreaker
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
-        Boolean leftArrowDown, rightArrowDown;
+        Boolean leftArrowDown, rightArrowDown, spaceDown;
+
+        //boolean for the ball movement
+        Boolean ballStart;
 
         // Game values
         int lives;
@@ -83,7 +86,7 @@ namespace BrickBreaker
             while (blocks.Count < 12)
             {
                 x += 57;
-                Block b1 = new Block(x, 10, 1, Color.White);
+                Block b1 = new Block(x, 100, 1, Color.White);
                 blocks.Add(b1);
             }
 
@@ -104,8 +107,10 @@ namespace BrickBreaker
                 case Keys.Right:
                     rightArrowDown = true;
                     break;
-                default:
+                case Keys.Space:
+                    spaceDown = true;
                     break;
+
             }
         }
 
@@ -120,7 +125,8 @@ namespace BrickBreaker
                 case Keys.Right:
                     rightArrowDown = false;
                     break;
-                default:
+                case Keys.Space:
+                    spaceDown = false;
                     break;
             }
         }
@@ -137,8 +143,15 @@ namespace BrickBreaker
                 paddle.Move("right");
             }
 
-            // Move ball
-            ball.Move();
+            if(spaceDown == true)
+            {
+                ballStart = true;
+            }
+           if(ballStart == true)
+            {
+                //moves the ball
+                ball.Move();
+            }
 
             // Check for collision with top and side walls
             ball.WallCollision(this);
@@ -157,6 +170,7 @@ namespace BrickBreaker
                     gameTimer.Enabled = false;
                     OnEnd();
                 }
+                ballStart = false;
             }
 
             // Check for collision of ball with paddle, (incl. paddle movement)

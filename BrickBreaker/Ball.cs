@@ -36,6 +36,15 @@ namespace BrickBreaker
 
             if (ballRec.IntersectsWith(blockRec))
             {
+                if(ySpeed > 0)
+                {
+                    y = b.y-size;
+                   
+                }
+                else
+                {
+                    y = b.y + size;
+                }
                 ySpeed *= -1;
             }
 
@@ -48,17 +57,12 @@ namespace BrickBreaker
             Rectangle ballRec = new Rectangle(x, y, size, size);
             Rectangle paddleRec = new Rectangle(p.x, p.y, p.width, p.height);
 
-
             //revereses speed on contact 
             if (ballRec.IntersectsWith(paddleRec))
             {
-                //ballRec.Y = paddleRec.Y + ballRec.Height + 100;
-                
-                
+                y = p.y - size;
                 ySpeed *= -1;
-                
-                
-                
+
             }
         }
 
