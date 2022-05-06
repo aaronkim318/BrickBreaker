@@ -41,6 +41,8 @@ namespace BrickBreaker
 
         //bill
         int hitCheck = 0;
+        Random randGen = new Random(6);
+       // int randNum = randGen.Next(0, 10);
         public GameScreen()
         {
             InitializeComponent();
@@ -209,7 +211,7 @@ namespace BrickBreaker
             }
 
             //bill
-            if (hitCheck == 1)
+            if (hitCheck == )
                   {
                        paddle.width = 150;
                   }
