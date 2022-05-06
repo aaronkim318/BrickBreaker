@@ -13,10 +13,11 @@ namespace BrickBreaker
 {
     public partial class MenuScreen : UserControl
     {
-
-        List<Rectangle> SquareList = new List<Rectangle>(); //Made List for squares (JUAN)
+        //----Juan------//
+       public static List<Rectangle> SquareList = new List<Rectangle>(); //Made List for squares (JUAN)
         Random randGen = new Random();
         Size screenSize;
+        //--------------//
 
         public MenuScreen()
         {
@@ -43,9 +44,7 @@ namespace BrickBreaker
         public void JuanMethod_NewFlyingSquares()  //method meant for creating and putting the squares into a list (JUAN)
         {
 
-
-
-            screenSize = new Size(this.Width, this.Height);
+         screenSize = new Size(this.Width, this.Height);
 
          int x = randGen.Next(40, screenSize.Width - 40);
          int y = randGen.Next(40, screenSize.Height - 40);
@@ -60,7 +59,7 @@ namespace BrickBreaker
             int xspeed = 4;
             for (int i = 1; i < 0; i++)
             {
-                square.x = square.x + xspeed;
+                AmongOne.x = SquareList[i].x + xspeed;
             }
 
             if (SquareList[i] <= 1067)
@@ -81,5 +80,13 @@ namespace BrickBreaker
             gs.Location = new Point((form.Width - gs.Width) / 2, (form.Height - gs.Height) / 2);
         }
 
+        private void MenuScreen_Paint(object sender, PaintEventArgs e)
+        {
+            foreach (Rectangle rectangle in SquareList)
+            {
+                e.Graphics.FillRectangle(Brushes.Green, rectangle.x, rectangle.y, rectangle.size, rectangle.size);
+            }
+            
+        }
     }
 }
