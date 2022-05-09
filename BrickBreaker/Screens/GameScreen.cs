@@ -45,14 +45,20 @@ namespace BrickBreaker
         //bill
         int hitCheck = 0;
         Random randGen = new Random();
-        int randNum = 0;
+        int powerUpX;
+        int powerUpY = 0;
+        int powerUpWidth = 20;
+        int powerUpHeight = 20;
+        
+            
+
         
       
         public GameScreen()
         {
             InitializeComponent();
             OnStart();
-           
+            PowerUps();
         }
 
 
@@ -141,7 +147,10 @@ namespace BrickBreaker
         }
         public void PowerUps()
         {
-            
+            if (hitCheck % 2 == 0)
+            {
+                powerUpX = randGen.Next(1, 854);
+            }
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
@@ -211,10 +220,8 @@ namespace BrickBreaker
             }
 
             //bill
-            if (hitCheck == randNum)
-                  {
-                       paddle.width = 150;
-                  }
+           
+            
 
                 //redraw the screen
                 Refresh();
@@ -246,6 +253,18 @@ namespace BrickBreaker
 
             // Draws ball
             e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
+
+
+            //Bill
+         
+
+                    
+            if (hitCheck % 2 == 0 )
+            {
+
+                e.Graphics.FillRectangle(ballBrush, powerUpX, powerUpY, powerUpWidth, powerUpHeight);
+            }
+          
         }
     }
 }
