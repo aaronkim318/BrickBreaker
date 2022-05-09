@@ -58,7 +58,6 @@ namespace BrickBreaker
         {
             InitializeComponent();
             OnStart();
-            PowerUps();
         }
 
 
@@ -220,7 +219,12 @@ namespace BrickBreaker
             }
 
             //bill
-           
+           if(hitCheck % 2 == 0)
+            {
+                PowerUps();
+            }
+
+            powerUpY -= 6;
             
 
                 //redraw the screen
@@ -256,14 +260,8 @@ namespace BrickBreaker
 
 
             //Bill
-         
-
-                    
-            if (hitCheck % 2 == 0 )
-            {
-
                 e.Graphics.FillRectangle(ballBrush, powerUpX, powerUpY, powerUpWidth, powerUpHeight);
-            }
+            
           
         }
     }
