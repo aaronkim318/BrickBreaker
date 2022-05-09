@@ -42,17 +42,18 @@ namespace BrickBreaker
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            int xspeed = 8;
+            int xspeed = 5;
 
             for (int i = 0; i < SquareList.Count; i++)
             {
                 int x = SquareList[i].X + xspeed;
                 SquareList[i] = new Rectangle(x, SquareList[i].Y, SquareList[i].Width, SquareList[i].Height);
 
-            // if (SquareList[i].X >= 167)
-            //{
-            //  x = 0;
-            //}
+                //if (SquareList[i].X >= this.Width)
+                //{
+                //    x = 0;
+                //    SquareList[i].Y = randGen.Next(40, screenSize.Height - 40);
+                //}
 
             }
             Refresh();
@@ -86,6 +87,17 @@ namespace BrickBreaker
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void howToButton_Click(object sender, EventArgs e)
+        {
+            HowToPlay htp = new HowToPlay();
+            Form form = this.FindForm();
+
+            form.Controls.Add(htp);
+            form.Controls.Remove(this);
+
+            htp.Location = new Point((form.Width - htp.Width) / 2, (form.Height - htp.Height) / 2);
         }
     }
 }

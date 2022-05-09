@@ -99,6 +99,7 @@
             this.howToButton.TabIndex = 3;
             this.howToButton.Text = "How To Play";
             this.howToButton.UseVisualStyleBackColor = false;
+            this.howToButton.Click += new System.EventHandler(this.howToButton_Click);
             // 
             // gameTimer
             // 
