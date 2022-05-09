@@ -38,11 +38,11 @@ namespace BrickBreaker
             if (ballRec.IntersectsWith(blockRec))
             {
 
-               //checks to see where the ball collides
-                if(ySpeed > 0)
+                //checks to see where the ball collides
+                if (ySpeed > 0)
                 {
-                    y = b.y-size;
-                   
+                    y = b.y - size;
+
                 }
                 else
                 {
