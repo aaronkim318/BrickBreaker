@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using System.Threading;
 
 namespace BrickBreaker
 {
@@ -58,6 +59,7 @@ namespace BrickBreaker
         {
             InitializeComponent();
             OnStart();
+            
         }
 
 
@@ -87,11 +89,14 @@ namespace BrickBreaker
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
-         
+            //Bill
+           
+           
+
            
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
-             //wait until adrian is done making the levels and importing them into an xml file
+            //wait until adrian is done making the levels and importing them into an xml file
 
             //TODO - replace all the code in this region eventually with code that loads levels from xml files
             blocks.Clear();
@@ -146,10 +151,9 @@ namespace BrickBreaker
         }
         public void PowerUps()
         {
-            if (hitCheck % 2 == 0)
-            {
-                powerUpX = randGen.Next(1, 854);
-            }
+            powerUpX = randGen.Next(1, 834);
+
+
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
@@ -219,12 +223,9 @@ namespace BrickBreaker
             }
 
             //bill
-           if(hitCheck % 2 == 0)
-            {
-                PowerUps();
-            }
 
-            powerUpY -= 6;
+
+            powerUpY += 1;
             
 
                 //redraw the screen
@@ -260,9 +261,15 @@ namespace BrickBreaker
 
 
             //Bill
-                e.Graphics.FillRectangle(ballBrush, powerUpX, powerUpY, powerUpWidth, powerUpHeight);
-            
-          
+
+            //if (hitCheck % 2 == 0)
+            //{
+                
+               e.Graphics.FillRectangle(ballBrush, powerUpX, powerUpY, powerUpWidth, powerUpHeight);
+            //}
+
+
+
         }
     }
 }
