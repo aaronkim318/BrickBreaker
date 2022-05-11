@@ -30,7 +30,13 @@ namespace BrickBreaker
 
         private void nextButtonOne_Click(object sender, EventArgs e)
         {
+            HowToPlayThree htp3 = new HowToPlayThree();
+            Form form = this.FindForm();
 
+            form.Controls.Add(htp3);
+            form.Controls.Remove(this);
+
+            htp3.Location = new Point((form.Width - htp3.Width) / 2, (form.Height - htp3.Height) / 2);
         }
     }
 }

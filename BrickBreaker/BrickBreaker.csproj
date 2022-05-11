@@ -84,6 +84,12 @@
     <Compile Include="HowToPlay Screens\HowToPlayTwo.Designer.cs">
       <DependentUpon>HowToPlayTwo.cs</DependentUpon>
     </Compile>
+    <Compile Include="HowToPlay Screens\HowToPlayThree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HowToPlay Screens\HowToPlayThree.Designer.cs">
+      <DependentUpon>HowToPlayThree.cs</DependentUpon>
+    </Compile>
     <Compile Include="Paddle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HowToPlay Screens\HowToPlayTwo.resx">
       <DependentUpon>HowToPlayTwo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HowToPlay Screens\HowToPlayThree.resx">
+      <DependentUpon>HowToPlayThree.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -17,6 +17,7 @@ namespace BrickBreaker
         public static List<Rectangle> SquareList = new List<Rectangle>(); //Made List for squares (JUAN)
         Random randGen = new Random();
         Size screenSize;
+        int angle;
         //--------------//
 
         public MenuScreen()
@@ -31,31 +32,49 @@ namespace BrickBreaker
                 
             screenSize = new Size(this.Width, this.Height);
 
-            int y = randGen.Next(40, screenSize.Height - 40);
+            int y = randGen.Next(100, screenSize.Height - 250);
 
-            Rectangle AmongOne = new Rectangle(0, y, 15, 15);
+            Rectangle AmongOne = new Rectangle(0, y, 30, 30);
             SquareList.Add(AmongOne);
-         //       sleep(1000);
+    
         }
 
         }
 
+        
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            int xspeed = 5;
+            int xspeed = 35;
+            int whichAngle = randGen.Next(1, 2);
+            int randHeight = randGen.Next(200, 450);
+
 
             for (int i = 0; i < SquareList.Count; i++)
             {
                 int x = SquareList[i].X + xspeed;
+                int y = SquareList[i].Y;
                 SquareList[i] = new Rectangle(x, SquareList[i].Y, SquareList[i].Width, SquareList[i].Height);
 
-                //if (SquareList[i].X >= this.Width)
-                //{
-                //    x = 0;
-                //    SquareList[i].Y = randGen.Next(40, screenSize.Height - 40);
-                //}
-
+                if (SquareList[i].X >= 1067)
+                {
+                    x = 0;
+                    y = randHeight;
+                    SquareList[i] = new Rectangle(x, y, SquareList[i].Width, SquareList[i].Height);
+  
+                }
+            
             }
+
+            if (whichAngle == 1)
+            {
+                angle--;
+            }
+
+            else if (whichAngle == 2)
+            {
+                angle++;
+            }
+            
             Refresh();
         }
 
@@ -64,9 +83,39 @@ namespace BrickBreaker
         {
             int randColour = randGen.Next(1,5);
 
+            Graphics g = this.CreateGraphics();
+            //the central point of the rotation
+            g.TranslateTransform(0, 0);
+            //rotation procedure
+            g.RotateTransform(5.0F);
+
             for (int i = 0; i < SquareList.Count; i++)
             {
-                e.Graphics.FillRectangle(Brushes.Green, SquareList[i].X, SquareList[i].Y, SquareList[i].Width, SquareList[i].Height);
+
+                if (randColour == 1)
+                {
+                    g.DrawRectangle(Pens.Red, SquareList[i].X, SquareList[i].Y, SquareList[i].Width, SquareList[i].Height);
+                }
+
+                else if (randColour == 2)
+                {
+                    g.DrawRectangle(Pens.Blue, SquareList[i].X, SquareList[i].Y, SquareList[i].Width, SquareList[i].Height);
+                }
+
+                else if (randColour == 3)
+                {
+                    g.DrawRectangle(Pens.Yellow, SquareList[i].X, SquareList[i].Y, SquareList[i].Width, SquareList[i].Height);
+                }
+
+                else if (randColour == 4)
+                {
+                    g.DrawRectangle(Pens.Pink, SquareList[i].X, SquareList[i].Y, SquareList[i].Width, SquareList[i].Height);
+                }
+
+                else if (randColour == 5)
+                {
+                    g.DrawRectangle(Pens.Orange, SquareList[i].X, SquareList[i].Y, SquareList[i].Width, SquareList[i].Height);
+                }
             }
 
         }
