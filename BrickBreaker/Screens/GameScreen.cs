@@ -50,11 +50,11 @@ namespace BrickBreaker
         int powerUpY = 0;
         int powerUpWidth = 20;
         int powerUpHeight = 20;
-        
-            
+        List<PowerUpBall> powerBall = new List<PowerUpBall>();
 
-        
-      
+
+
+
         public GameScreen()
         {
             InitializeComponent();
@@ -90,7 +90,7 @@ namespace BrickBreaker
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
             //Bill
-           
+          
            
 
            
@@ -149,10 +149,13 @@ namespace BrickBreaker
                     break;
             }
         }
-        public void PowerUps()
+        public void NewPowerUps()
         {
             powerUpX = randGen.Next(1, 834);
+            powerUpY = 20;
 
+            PowerUpBall pb = new PowerUpBall(powerUpX, powerUpY, 20, 20);
+            powerBall.Add(pb);
 
         }
 
@@ -262,11 +265,15 @@ namespace BrickBreaker
 
             //Bill
 
-            //if (hitCheck % 2 == 0)
-            //{
+            if (hitCheck % 2 == 0)
+            {
                 
-               e.Graphics.FillRectangle(ballBrush, powerUpX, powerUpY, powerUpWidth, powerUpHeight);
-            //}
+               e.Graphics.FillRectangle(ballBrush, this.Width / 2 - powerUpWidth, powerUpY, powerUpWidth, powerUpHeight);
+            }
+            else if (hitCheck == 0)
+            {
+
+            }
 
 
 
