@@ -35,6 +35,8 @@
             this.titleLabel = new System.Windows.Forms.Label();
             this.howToButton = new System.Windows.Forms.Button();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // playButton
@@ -107,12 +109,23 @@
             this.gameTimer.Interval = 300;
             this.gameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(889, 568);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(163, 92);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
             // MenuScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.howToButton);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.exitButton);
@@ -121,6 +134,7 @@
             this.Name = "MenuScreen";
             this.Size = new System.Drawing.Size(1067, 677);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuScreen_Paint);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,5 +147,6 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Button howToButton;
         private System.Windows.Forms.Timer gameTimer;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
