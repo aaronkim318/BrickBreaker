@@ -51,6 +51,7 @@ namespace BrickBreaker
         int powerUpWidth = 20;
         int powerUpHeight = 20;
         List<PowerUpBall> powerBall = new List<PowerUpBall>();
+        PowerUpBall pb;
 
 
 
@@ -229,6 +230,16 @@ namespace BrickBreaker
 
 
             powerUpY += 1;
+
+            if(hitCheck % 2 == 0)
+            {
+                NewPowerUps();
+            }
+
+            if (powerUpY == 542 - powerUpHeight)
+            {
+                powerBall.Remove(pb);
+            }
             
 
                 //redraw the screen
@@ -265,15 +276,12 @@ namespace BrickBreaker
 
             //Bill
 
-            if (hitCheck % 2 == 0)
-            {
-                
-               e.Graphics.FillRectangle(ballBrush, this.Width / 2 - powerUpWidth, powerUpY, powerUpWidth, powerUpHeight);
-            }
-            else if (hitCheck == 0)
-            {
 
+            foreach (PowerUpBall pb in powerBall)
+            {
+                e.Graphics.FillRectangle(ballBrush, this.Width / 2 - powerUpWidth, powerUpY, powerUpWidth, powerUpHeight);
             }
+            
 
 
 
