@@ -25,13 +25,24 @@ namespace BrickBreaker
 
         public MenuScreen()
         {
-         //   JuanMethod_Sounds();
+         //   JuanMethod_Sounds(); //Declares sound method
             JuanMethod_FlyingSquares(); //Declares the new square method
             InitializeComponent();
         }
 
+        private void gameTimer_Tick(object sender, EventArgs e)
+        {
+            JuanMethod_MovingSquares(); //Declares the moving method
+        }
 
-        public void JuanMethod_Sounds() //Method meant to store sounds
+
+        private void MenuScreen_Paint(object sender, PaintEventArgs e)
+        {
+            JuanMethod_PaintingSquares(); //Declares the Paint method
+        }
+
+
+        public void JuanMethod_Sounds() //Method meant to store sounds (Commented out due to Project Manager)
         {
             //    SoundPlayer AmongUsMT = new SoundPlayer(Properties.Resources.);
             //    SoundPlayer AmongUsCam = new SoundPlayer(Properties.Resources.);
@@ -139,18 +150,7 @@ namespace BrickBreaker
         }
 
 
-        private void gameTimer_Tick(object sender, EventArgs e) 
-        {
-            JuanMethod_MovingSquares(); //Declares the moving method
-           
-        }
-
-
-        private void MenuScreen_Paint(object sender, PaintEventArgs e) 
-        {
-            JuanMethod_PaintingSquares(); //Declares the Paint method
-
-        }
+       
 
         private void playButton_Click(object sender, EventArgs e)
         {
@@ -163,7 +163,6 @@ namespace BrickBreaker
 
             gs.Location = new Point((form.Width - gs.Width) / 2, (form.Height - gs.Height) / 2);
         }
-
 
         private void exitButton_Click(object sender, EventArgs e)
         {
@@ -179,6 +178,17 @@ namespace BrickBreaker
             form.Controls.Remove(this);
 
             htp.Location = new Point((form.Width - htp.Width) / 2, (form.Height - htp.Height) / 2);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            CreditScreen cs  = new CreditScreen();
+            Form form = this.FindForm();
+
+            form.Controls.Add(cs);
+            form.Controls.Remove(this);
+
+            cs.Location = new Point((form.Width - cs.Width) / 2, (form.Height - cs.Height) / 2);
         }
     }
 }
