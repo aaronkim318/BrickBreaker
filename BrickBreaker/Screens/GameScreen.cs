@@ -229,13 +229,14 @@ namespace BrickBreaker
             //bill
 
 
-            powerUpY += 1;
+           
 
             if(hitCheck % 2 == 0)
             {
                 NewPowerUps();
+                
             }
-
+            powerUpY += 1;
             if (powerUpY == 542 - powerUpHeight)
             {
                 powerBall.Remove(pb);
