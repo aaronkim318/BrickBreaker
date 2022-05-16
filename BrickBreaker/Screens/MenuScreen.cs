@@ -20,7 +20,7 @@ namespace BrickBreaker
         public static List<SoundPlayer> soundList = new List<SoundPlayer>(); //List to store all sounds
         Random randGen = new Random();
         Size screenSize;
-        int angle = 0;
+        int angle;
         //--------------//
 
         public MenuScreen()
@@ -48,12 +48,14 @@ namespace BrickBreaker
             //    SoundPlayer AmongUsCam = new SoundPlayer(Properties.Resources.);
             //    SoundPlayer ClickPlay = new SoundPlayer(Properties.Resources.);
             //    SoundPlayer ClickHowToPlay = new SoundPlayer(Properties.Resources.);
+            //    SoundPlayer AlarmStartUp = new SoundPlayer(Properties.Resources.);
 
 
             //    soundList.Add(AmongUsMT);
             //    soundList.Add(AmongUsCam)
             //    soundList.Add(ClickPlay);
             //    soundList.Add(ClickHowToPlay);
+            //    soundList.Add(AlarmStartUp);
         }
 
         public void JuanMethod_FlyingSquares()  //Method meant for creating and putting the squares into a list (JUAN)
@@ -149,8 +151,6 @@ namespace BrickBreaker
 
         }
 
-
-       
 
         private void playButton_Click(object sender, EventArgs e)
         {
