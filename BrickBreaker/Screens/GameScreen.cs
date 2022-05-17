@@ -26,6 +26,8 @@ namespace BrickBreaker
         //boolean for the ball movement
         Boolean ballStart;
 
+        Boolean newLocation = true;
+
         // Game values
         int lives;
 
@@ -90,6 +92,8 @@ namespace BrickBreaker
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
+           
+
             //Bill
           
            
@@ -152,7 +156,11 @@ namespace BrickBreaker
         }
         public void NewPowerUps()
         {
-            powerUpX = randGen.Next(1, 834);
+            if(newLocation == true)
+            {
+          
+            }
+            
             powerUpY = 20;
 
             PowerUpBall pb = new PowerUpBall(powerUpX, powerUpY, 20, 20);
@@ -228,23 +236,25 @@ namespace BrickBreaker
 
             //bill
 
-
-           
-
-            if(hitCheck % 2 == 0)
+            if(hitCheck == 2)
             {
+                powerUpX = randGen.Next(1, 834);
                 NewPowerUps();
-                
             }
             powerUpY += 1;
-            if (powerUpY == 542 - powerUpHeight)
+            if(hitCheck == 4 )
             {
-                powerBall.Remove(pb);
+                powerUpX = randGen.Next(1, 834);
+                NewPowerUps();
             }
-            
-
-                //redraw the screen
-                Refresh();
+            //  if (hitCheck % 2 == 0 && hitCheck > 0)
+            //{
+            //    NewPowerUps();
+                
+            //}
+            powerUpY += 1;
+            //redraw the screen
+            Refresh();
         }
 
         public void OnEnd()
