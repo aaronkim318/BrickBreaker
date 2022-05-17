@@ -31,9 +31,11 @@ namespace BrickBreaker
         // Paddle and Ball objects
         Paddle paddle;
         Ball ball;
+        
 
         // list of all blocks for current level
         List<Block> blocks = new List<Block>();
+        
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);

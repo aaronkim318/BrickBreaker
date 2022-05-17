@@ -56,21 +56,21 @@ namespace BrickBreaker
         }
 
         //checks if ball hits paddle 
-        public void PaddleCollision(Paddle p)
-        {
-            Rectangle ballRec = new Rectangle(x, y, size, size);
-            Rectangle paddleRec = new Rectangle(p.x, p.y, p.width, p.height);
+        //public void PaddleCollision(Paddle p)
+        //{
+        //    Rectangle ballRec = new Rectangle(x, y, size, size);
+        //    Rectangle paddleRec = new Rectangle(p.x, p.y, p.width, p.height);
 
-            //revereses speed on contact 
-            if (ballRec.IntersectsWith(paddleRec))
-            {
-                //moves ball above paddle 
-                y = p.y - size;
+        //    //revereses speed on contact 
+        //    if (ballRec.IntersectsWith(paddleRec))
+        //    {
+        //        //moves ball above paddle 
+        //        y = p.y - size;
 
-                ySpeed *= -1;
+        //        ySpeed *= -1;
 
-            }
-        }
+        //    }
+        //}
 
         //check if ball hits wall 
         public void WallCollision(UserControl UC)
@@ -106,5 +106,58 @@ namespace BrickBreaker
             return didCollide;
         }
 
+        //public void Vent(Ventblock v)
+        //{
+        //    Rectangle ventRec1 = new Rectangle();
+        //    Rectangle ventRec2 = new Rectangle(v.x, v.y, v.width, v.height);
+        //    Rectangle ballRec = new Rectangle(x, y, size, size);
+
+        //    if (ballRec.IntersectsWith(ventRec1))
+        //    {
+        //        y = v.y;
+        //        x = v.x;
+
+        //    }
+        //    if (ballRec.IntersectsWith(ventRec2))
+        //    {
+        //        y = v.y;
+        //        x = v.x; 
+        //    }
+        //}
+
+        // rough broken code for ball angle based on paddle speed 
+        
+        public void PaddleCollision(Paddle p)
+        {
+            Rectangle ballRec = new Rectangle(x, y, size, size);
+            Rectangle paddleRec = new Rectangle(p.x, p.y, p.width, p.height);
+
+            //revereses speed on contact 
+            if (ballRec.IntersectsWith(paddleRec))
+            {
+                //moves ball above paddle 
+                y = p.y - size;
+
+
+
+                //if paddle is moving in the left direction increase the angle based off of its speed.
+                if (p.speed < 0)
+                {
+                    ySpeed *= -1;
+                        if (xSpeed > 2)
+                        { 
+                        xSpeed -= 2;
+                        }
+                }
+
+                if (p.speed > 0)
+                {
+                    ySpeed *= -1;
+                    
+                    xSpeed += 2;
+                }
+
+            }
+        }
     }
 }
