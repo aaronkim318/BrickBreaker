@@ -11,6 +11,7 @@ namespace BrickBreaker
         //int randgen = new Random();
 
         public static Random rand = new Random();
+        
 
         public Ball(int _x, int _y, int _xSpeed, int _ySpeed, int _ballSize)
         {
@@ -75,16 +76,20 @@ namespace BrickBreaker
         //check if ball hits wall 
         public void WallCollision(UserControl UC)
         {
-            // Collision with left wall
-            if (x <= 0)
-            {
-                xSpeed *= -1;
-            }
-            // Collision with right wall
-            if (x >= (UC.Width - size))
-            {
-                xSpeed *= -1;
-            }
+            rand = new Random();
+           
+            //// Collision with left wall
+            //if (x <= 0)
+            //{
+            //    double difAngle = rand.Next(1, 3);
+            //    xSpeed *= -Convert.ToInt32(difAngle);
+            //}
+            //// Collision with right wall
+            //if (x >= (UC.Width - size))
+            //{
+            //    double difAngle = rand.Next(1, 3);
+            //    xSpeed *= -Convert.ToInt32(difAngle);
+            //}
             // Collision with top wall
             if (y <= 2)
             {
