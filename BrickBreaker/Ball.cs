@@ -11,6 +11,7 @@ namespace BrickBreaker
         //int randgen = new Random();
 
         public static Random rand = new Random();
+        
 
         public Ball(int _x, int _y, int _xSpeed, int _ySpeed, int _ballSize)
         {
@@ -38,11 +39,11 @@ namespace BrickBreaker
             if (ballRec.IntersectsWith(blockRec))
             {
 
-               //checks to see where the ball collides
-                if(ySpeed > 0)
+                //checks to see where the ball collides
+                if (ySpeed > 0)
                 {
-                    y = b.y-size;
-                   
+                    y = b.y - size;
+
                 }
                 else
                 {
@@ -85,7 +86,7 @@ namespace BrickBreaker
             {
                 xSpeed *= -1;
             }
-            // Collision with top wall
+           // Collision with top wall
             if (y <= 2)
             {
                 ySpeed *= -1;
