@@ -128,6 +128,7 @@ namespace BrickBreaker
                     if (gameTimer.Enabled)
                     {
                         gameTimer.Enabled = false;
+                        //MenuScreen.soundList[6].Play(); //Plays pause sound
                         pauseLabel.Visible = true;
                         pauseLabel.Text = $"PAUSED";
                     }
