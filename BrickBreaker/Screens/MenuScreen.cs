@@ -42,7 +42,7 @@ namespace BrickBreaker
         }
 
 
-        public void JuanMethod_Sounds() //Method meant to store sounds (Commented out due to Project Manager)
+        public void JuanMethod_Sounds() //Method meant to store sounds (Commented out due to Project Manager) (Resources in the google drive folder)
         {
             //    SoundPlayer AmongUsMT = new SoundPlayer(Properties.Resources.);
             //    SoundPlayer AmongUsCam = new SoundPlayer(Properties.Resources.);
