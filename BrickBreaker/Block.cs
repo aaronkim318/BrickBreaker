@@ -26,5 +26,10 @@ namespace BrickBreaker
             hp = _hp;
             colour = _colour;
         }
+
+        //public ventBlock(int _x, int _y, int _hp, Color colour)
+        //{
+
+        //}
     }
 }
