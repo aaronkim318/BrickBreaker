@@ -76,21 +76,17 @@ namespace BrickBreaker
         //check if ball hits wall 
         public void WallCollision(UserControl UC)
         {
-            rand = new Random();
-           
-            //// Collision with left wall
-            //if (x <= 0)
-            //{
-            //    double difAngle = rand.Next(1, 3);
-            //    xSpeed *= -Convert.ToInt32(difAngle);
-            //}
-            //// Collision with right wall
-            //if (x >= (UC.Width - size))
-            //{
-            //    double difAngle = rand.Next(1, 3);
-            //    xSpeed *= -Convert.ToInt32(difAngle);
-            //}
-            // Collision with top wall
+            // Collision with left wall
+            if (x <= 0)
+            {
+                xSpeed *= -1;
+            }
+            // Collision with right wall
+            if (x >= (UC.Width - size))
+            {
+                xSpeed *= -1;
+            }
+           // Collision with top wall
             if (y <= 2)
             {
                 ySpeed *= -1;
