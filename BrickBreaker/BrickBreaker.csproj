@@ -66,11 +66,41 @@
   <ItemGroup>
     <Compile Include="Ball.cs" />
     <Compile Include="Block.cs" />
+    <Compile Include="GameOverScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GameOverScreen.Designer.cs">
+      <DependentUpon>GameOverScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\CreditScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\CreditScreen.Designer.cs">
+      <DependentUpon>CreditScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HowToPlay Screens\HowToPlay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HowToPlay Screens\HowToPlay.Designer.cs">
+      <DependentUpon>HowToPlay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HowToPlay Screens\HowToPlayTwo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HowToPlay Screens\HowToPlayTwo.Designer.cs">
+      <DependentUpon>HowToPlayTwo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HowToPlay Screens\HowToPlayThree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HowToPlay Screens\HowToPlayThree.Designer.cs">
+      <DependentUpon>HowToPlayThree.cs</DependentUpon>
     </Compile>
     <Compile Include="Paddle.cs" />
     <Compile Include="Program.cs" />
@@ -90,6 +120,18 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GameOverScreen.resx">
+      <DependentUpon>GameOverScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HowToPlay Screens\HowToPlay.resx">
+      <DependentUpon>HowToPlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HowToPlay Screens\HowToPlayTwo.resx">
+      <DependentUpon>HowToPlayTwo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HowToPlay Screens\HowToPlayThree.resx">
+      <DependentUpon>HowToPlayThree.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -100,6 +142,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Screens\CreditScreen.resx">
+      <DependentUpon>CreditScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\MenuScreen.resx">
       <DependentUpon>MenuScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,8 +177,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <None Include="Resources\Cam Static.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

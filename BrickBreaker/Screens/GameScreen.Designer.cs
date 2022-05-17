@@ -57,6 +57,9 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Controls.Add(this.pauseLabel);
             this.DoubleBuffered = true;
+
+            this.Margin = new System.Windows.Forms.Padding(4);
+          
             this.Name = "GameScreen";
             this.Size = new System.Drawing.Size(854, 542);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameScreen_Paint);
