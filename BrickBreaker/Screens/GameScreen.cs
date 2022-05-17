@@ -1,7 +1,7 @@
 ﻿/*  Created by: 
  *  Project: Brick Breaker
  *  Date: 
- */ 
+ */
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,10 +20,13 @@ namespace BrickBreaker
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
-        Boolean leftArrowDown, rightArrowDown, spaceDown;
+        Boolean leftArrowDown, rightArrowDown;
 
         //boolean for the ball movement
         Boolean ballStart;
+
+        //boolean for key presses and ball
+        Boolean spaceDown, ballFollow;
 
         // Game values
         int lives;
@@ -31,9 +34,11 @@ namespace BrickBreaker
         // Paddle and Ball objects
         Paddle paddle;
         Ball ball;
+        
 
         // list of all blocks for current level
         List<Block> blocks = new List<Block>();
+        
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
@@ -45,12 +50,12 @@ namespace BrickBreaker
         //bill
         int hitCheck = 0;
         Random randGen = new Random(6);
-       // int randNum = randGen.Next(0, 10);
+        // int randNum = randGen.Next(0, 10);
         public GameScreen()
         {
             InitializeComponent();
             OnStart();
-           
+
         }
 
 
@@ -60,7 +65,7 @@ namespace BrickBreaker
             lives = 3;
 
             //set all button presses to false.
-            leftArrowDown = rightArrowDown = false;
+            leftArrowDown = rightArrowDown = spaceDown = ballFollow = false;
 
             // setup starting paddle values and create paddle object
             int paddleWidth = 80;
@@ -72,7 +77,7 @@ namespace BrickBreaker
 
             // setup starting ball values
             int ballX = this.Width / 2 - 10;
-            int ballY = this.Height - paddle.height - 80;
+            int ballY = (this.Height - paddle.height) - 85;
 
             // Creates a new ball
             int xSpeed = 6;
@@ -80,11 +85,13 @@ namespace BrickBreaker
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
-         
-           
+            pauseLabel.Visible = false;
+
+
+
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
-             //wait until adrian is done making the levels and importing them into an xml file
+            //wait until adrian is done making the levels and importing them into an xml file
 
             //TODO - replace all the code in this region eventually with code that loads levels from xml files
             blocks.Clear();
@@ -117,6 +124,21 @@ namespace BrickBreaker
                 case Keys.Space:
                     spaceDown = true;
                     break;
+                case Keys.Escape:
+                    if (gameTimer.Enabled)
+                    {
+                        gameTimer.Enabled = false;
+                        pauseLabel.Visible = true;
+                        pauseLabel.Text = $"PAUSED";
+                    }
+                    else
+                    {
+                        gameTimer.Enabled = true;
+                        pauseLabel.Visible = false;
+                    }
+
+                    break;
+
 
             }
         }
@@ -137,46 +159,65 @@ namespace BrickBreaker
                     break;
             }
         }
-        public void PowerUps ()
+        public void PowerUps()
         {
-        //     int hitCheck = 0;
-        
-        //Random randGen = new Random();
-        //    int randNum = randGen.Next(0, 10);
+            //     int hitCheck = 0;
 
-        //      foreach (Block b in blocks)
-        //    {
-        //        if (ball.BlockCollision(b))
-        //        {
-        //         hitCheck +=  1;
-        //        }
-        //     }
+            //Random randGen = new Random();
+            //    int randNum = randGen.Next(0, 10);
 
-        //    if(hitCheck == 1)
-        //    {
-        //        paddle.width = 150;
-        //    }
+            //      foreach (Block b in blocks)
+            //    {
+            //        if (ball.BlockCollision(b))
+            //        {
+            //         hitCheck +=  1;
+            //        }
+            //     }
+
+            //    if(hitCheck == 1)
+            //    {
+            //        paddle.width = 150;
+            //    }
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-
-            
-            // Move the paddle
-            if (leftArrowDown && paddle.x > 0)
+            //has the ball move witht the arrow clicks
+            if (ballFollow == false)
             {
-                paddle.Move("left"); 
+                // Move the paddle and the ball together
+                if (leftArrowDown && paddle.x > 0)
+                {
+                    ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
+                    ball.y = (this.Height - paddle.height) - 85;
+                    paddle.Move("left");
+                }
+                if (rightArrowDown && paddle.x < (this.Width - paddle.width))
+                {
+                    ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
+                    ball.y = (this.Height - paddle.height) - 85;
+                    paddle.Move("right");
+                }
             }
-            if (rightArrowDown && paddle.x < (this.Width - paddle.width))
+            else
             {
-                paddle.Move("right");
+                // Move the paddle
+                if (leftArrowDown && paddle.x > 0)
+                {
+                    paddle.Move("left");
+                }
+                if (rightArrowDown && paddle.x < (this.Width - paddle.width))
+                {
+                    paddle.Move("right");
+                }
             }
-
-            if(spaceDown == true)
+            //is space is pressed then move ball
+            if (spaceDown == true)
             {
                 ballStart = true;
+                ballFollow = true;
             }
-           if(ballStart == true)
+            if (ballStart == true)
             {
                 //moves the ball
                 ball.Move();
@@ -200,6 +241,7 @@ namespace BrickBreaker
                     OnEnd();
                 }
                 ballStart = false;
+                ballFollow = false;
             }
 
             // Check for collision of ball with paddle, (incl. paddle movement)
@@ -230,8 +272,8 @@ namespace BrickBreaker
             //           paddle.width = 150;
             //      }
 
-                //redraw the screen
-                Refresh();
+            //redraw the screen
+            Refresh();
         }
 
         public void OnEnd()
@@ -239,7 +281,7 @@ namespace BrickBreaker
             // Goes to the game over screen
             Form form = this.FindForm();
             MenuScreen ps = new MenuScreen();
-            
+
             ps.Location = new Point((form.Width - ps.Width) / 2, (form.Height - ps.Height) / 2);
 
             form.Controls.Add(ps);
