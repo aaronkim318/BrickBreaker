@@ -103,9 +103,9 @@
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.pictureBox3.Location = new System.Drawing.Point(33, 0);
+            this.pictureBox3.Location = new System.Drawing.Point(-55, 0);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(991, 42);
+            this.pictureBox3.Size = new System.Drawing.Size(1232, 42);
             this.pictureBox3.TabIndex = 8;
             this.pictureBox3.TabStop = false;
             // 
