@@ -186,6 +186,30 @@
   <ItemGroup>
     <None Include="Resources\Sound Effects\AlarmWav.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sound Effects\Ball Bounce.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sound Effects\Beewoop.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sound Effects\Blip_Select31.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sound Effects\Brick Broken.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sound Effects\Correct.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sound Effects\nunu.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sound Effects\Super Mario 64 Pause Sound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sound Effects\Vent.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
