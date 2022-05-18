@@ -53,10 +53,7 @@ namespace BrickBreaker
         int powerUpWidth = 20;
         int powerUpHeight = 20;
         List<PowerUpBall> powerBall = new List<PowerUpBall>();
-        PowerUpBall pb;
-
-
-
+       
 
         public GameScreen()
         {
@@ -156,11 +153,7 @@ namespace BrickBreaker
         }
         public void NewPowerUps()
         {
-            if(newLocation == true)
-            {
-          
-            }
-            
+            powerUpX = randGen.Next(1, 834);
             powerUpY = 20;
 
             PowerUpBall pb = new PowerUpBall(powerUpX, powerUpY, 20, 20);
@@ -171,22 +164,22 @@ namespace BrickBreaker
         private void gameTimer_Tick(object sender, EventArgs e)
         {
 
-            
+
             // Move the paddle
             if (leftArrowDown && paddle.x > 0)
             {
-                paddle.Move("left"); 
+                paddle.Move("left");
             }
             if (rightArrowDown && paddle.x < (this.Width - paddle.width))
             {
                 paddle.Move("right");
             }
 
-            if(spaceDown == true)
+            if (spaceDown == true)
             {
                 ballStart = true;
             }
-           if(ballStart == true)
+            if (ballStart == true)
             {
                 //moves the ball
                 ball.Move();
@@ -235,23 +228,41 @@ namespace BrickBreaker
             }
 
             //bill
+            Rectangle powerBallRec = new Rectangle(powerUpX, powerUpY, 20, 20);
+            Rectangle paddleRec = new Rectangle(paddle.x, paddle.y, paddle.width, paddle.height);
 
-            if(hitCheck == 2)
+
+            foreach (PowerUpBall pb in powerBall)
             {
-                powerUpX = randGen.Next(1, 834);
+                if (powerBallRec.IntersectsWith(paddleRec))
+                {
+                    powerBall.Remove(pb);
+                }
+            }
+
+            if (hitCheck == 2)
+            {
                 NewPowerUps();
             }
-            powerUpY += 1;
-            if(hitCheck == 4 )
+            if (hitCheck == 12)
             {
-                powerUpX = randGen.Next(1, 834);
                 NewPowerUps();
             }
-            //  if (hitCheck % 2 == 0 && hitCheck > 0)
-            //{
-            //    NewPowerUps();
-                
-            //}
+            try
+            {
+                foreach (PowerUpBall pb in powerBall)
+                {
+                    if (powerUpY > 522)
+                    {
+                        powerBall.Remove(pb);
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+            
             powerUpY += 1;
             //redraw the screen
             Refresh();
