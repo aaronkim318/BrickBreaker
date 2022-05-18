@@ -25,7 +25,7 @@ namespace BrickBreaker
 
         public MenuScreen()
         {
-            //   JuanMethod_Sounds(); //Declares sound method
+               JuanMethod_Sounds(); //Declares sound method
             //soundList[0].Play(); //Plays the main theme of Among Us
             JuanMethod_FlyingSquares(); //Declares the new square method
             InitializeComponent();
@@ -49,7 +49,7 @@ namespace BrickBreaker
             //    SoundPlayer AmongUsCam = new SoundPlayer(Properties.Resources.);
             //    SoundPlayer ClickPlay = new SoundPlayer(Properties.Resources.);
             //    SoundPlayer ClickHowToPlay = new SoundPlayer(Properties.Resources.);
-            //    SoundPlayer AlarmStartUp = new SoundPlayer(Properties.Resources.);
+              SoundPlayer AlarmStartUp = new SoundPlayer(Properties.Resources.AlarmWav);
             //    SoundPlayer PauseSound = new SoundPlayer(Properties.Resources.);
             //    SoundPlayer CreditSound = new SoundPlayer(Properties.Resources.);
             //    SoundPlayer HowToPlayMT = new SoundPlayer(Properties.Resources.);
@@ -64,7 +64,7 @@ namespace BrickBreaker
             //    soundList.Add(AmongUsCam);
             //    soundList.Add(ClickPlay);
             //    soundList.Add(ClickHowToPlay);
-            //    soundList.Add(AlarmStartUp);
+               soundList.Add(AlarmStartUp);
             //    soundList.Add(PauseSound);
             //    soundList.Add(CreditSound);
             //    soundList.Add(HowToPlayMT);
@@ -172,7 +172,7 @@ namespace BrickBreaker
         private void playButton_Click(object sender, EventArgs e)
         {
             // Goes to the game screen
-            //soundList[3].Play(); //Plays a camera ding
+            soundList[0].Play(); //Plays a camera ding
             GameScreen gs = new GameScreen();
             Form form = this.FindForm();
 
