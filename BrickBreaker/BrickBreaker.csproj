@@ -177,9 +177,14 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="level1.xml" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Cam Static.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sound Effects\AlarmWav.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

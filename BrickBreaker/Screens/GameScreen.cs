@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using System.Xml;
 
 namespace BrickBreaker
 {
@@ -318,5 +319,42 @@ namespace BrickBreaker
             // Draws ball
             e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
         }
+        //public void levelOne()
+        //{
+        //    // current level
+
+
+        //    // variables for block x and y values
+        //    string blockX;
+        //    string blockY;
+        //    int intX;
+        //    int intY;
+
+        //    // create xml reader
+        //    XmlTextReader reader = new XmlTextReader($"Resources/level{level}.xml");
+
+        //    reader.ReadStartElement("level");
+
+        //    //Grabs all the blocks for the current level and adds them to the list
+        //    while (reader.Read())
+        //    {
+        //        reader.ReadToFollowing("x");
+        //        blockX = reader.ReadString();
+
+        //        reader.ReadToFollowing("y");
+        //        blockY = reader.ReadString();
+
+        //        if (blockX != "")
+        //        {
+        //            intX = Convert.ToInt32(blockX);
+        //            intY = Convert.ToInt32(blockY);
+        //            Block b = new Block(intX, intY, level);
+        //            blocks.Add(b);
+        //        }
+        //    }
+        //    // close reader
+        //    reader.Close();
+        //}
     }
+
 }
