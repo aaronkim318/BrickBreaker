@@ -55,6 +55,9 @@ namespace BrickBreaker
             //    SoundPlayer HowToPlayMT = new SoundPlayer(Properties.Resources.);
             //    SoundPlayer BallMiss = new SoundPlayer(Properties.Resources.);
             //    SoundPlayer BallBounce = new SoundPlayer(Properties.Resources.);
+            //    SoundPlayer EnterVent = new SoundPlayer(Properties.Resources.);
+            //    SoundPlayer GameOverSound = new SoundPlayer(Properties.Resources.);
+            //    SoundPlayer BrickBroken = new SoundPlayer(Properties.Resources.);
 
 
             //    soundList.Add(AmongUsMT);
@@ -67,6 +70,9 @@ namespace BrickBreaker
             //    soundList.Add(HowToPlayMT);
             //    soundList.Add(BallMiss);
             //    soundList.Add(BallBounce);
+            //    soundList.Add(EnterVent);
+            //    soundList.Add(GameOverSound);
+            //    soundList.Add(BrickBroken);
         }
 
         public void JuanMethod_FlyingSquares()  //Method meant for creating and putting the squares into a list (JUAN)
