@@ -66,10 +66,10 @@
   <ItemGroup>
     <Compile Include="Ball.cs" />
     <Compile Include="Block.cs" />
-    <Compile Include="GameOverScreen.cs">
+    <Compile Include="Screens\GameOverScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GameOverScreen.Designer.cs">
+    <Compile Include="Screens\GameOverScreen.Designer.cs">
       <DependentUpon>GameOverScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\CreditScreen.cs">
@@ -120,7 +120,7 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GameOverScreen.resx">
+    <EmbeddedResource Include="Screens\GameOverScreen.resx">
       <DependentUpon>GameOverScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HowToPlay Screens\HowToPlay.resx">

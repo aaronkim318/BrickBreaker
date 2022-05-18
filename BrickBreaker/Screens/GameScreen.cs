@@ -129,6 +129,7 @@ namespace BrickBreaker
                     if (gameTimer.Enabled)
                     {
                         gameTimer.Enabled = false;
+                        //MenuScreen.soundList[5].Play(); //Plays pause sound
                         pauseLabel.Visible = true;
                         pauseLabel.Text = $"PAUSED";
                     }
@@ -239,7 +240,8 @@ namespace BrickBreaker
                 if (lives == 0)
                 {
                     gameTimer.Enabled = false;
-                    OnEnd();
+                    JuanMethod_OnEnd();
+                    //OnEnd();
                 }
                 ballStart = false;
                 ballFollow = false;
@@ -253,6 +255,7 @@ namespace BrickBreaker
             {
                 if (ball.BlockCollision(b))
                 {
+                 //   MenuScreen.soundList[12].Play(); //Plays destroy block sound
                     blocks.Remove(b);
                     //bill
                     hitCheck += 1;
@@ -286,6 +289,18 @@ namespace BrickBreaker
             ps.Location = new Point((form.Width - ps.Width) / 2, (form.Height - ps.Height) / 2);
 
             form.Controls.Add(ps);
+            form.Controls.Remove(this);
+        }
+
+        public void JuanMethod_OnEnd()
+        {
+            // Goes to the game over screen
+            Form form = this.FindForm();
+            GameOverScreen gos = new GameOverScreen();
+
+            gos.Location = new Point((form.Width - gos.Width) / 2, (form.Height - gos.Height) / 2);
+
+            form.Controls.Add(gos);
             form.Controls.Remove(this);
         }
 
