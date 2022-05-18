@@ -177,7 +177,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="level1.xml" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Cam Static.gif" />
   </ItemGroup>
