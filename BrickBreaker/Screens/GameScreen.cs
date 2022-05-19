@@ -1,7 +1,7 @@
 ﻿/*  Created by: 
  *  Project: Brick Breaker
  *  Date: 
- */ 
+ */
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
 using System.Threading;
+using System.Xml;
+
 
 namespace BrickBreaker
 {
@@ -21,12 +23,16 @@ namespace BrickBreaker
         #region global values
 
         //player1 button control keys - DO NOT CHANGE
-        Boolean leftArrowDown, rightArrowDown, spaceDown;
+        Boolean leftArrowDown, rightArrowDown;
 
         //boolean for the ball movement
         Boolean ballStart;
 
-        Boolean newLocation = true;
+
+
+        //boolean for key presses and ball
+        Boolean spaceDown, ballFollow;
+
 
         // Game values
         int lives;
@@ -34,9 +40,11 @@ namespace BrickBreaker
         // Paddle and Ball objects
         Paddle paddle;
         Ball ball;
+        
 
         // list of all blocks for current level
         List<Block> blocks = new List<Block>();
+        
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
@@ -47,19 +55,17 @@ namespace BrickBreaker
 
         //bill
         int hitCheck = 0;
-        Random randGen = new Random();
-        int powerUpX;
-        int powerUpY = 0;
-        int powerUpWidth = 20;
-        int powerUpHeight = 20;
-        List<PowerUpBall> powerBall = new List<PowerUpBall>();
-       
+
+
+
+        Random randGen = new Random(6);
+        // int randNum = randGen.Next(0, 10);
 
         public GameScreen()
         {
             InitializeComponent();
             OnStart();
-            
+
         }
 
 
@@ -69,7 +75,7 @@ namespace BrickBreaker
             lives = 3;
 
             //set all button presses to false.
-            leftArrowDown = rightArrowDown = false;
+            leftArrowDown = rightArrowDown = spaceDown = ballFollow = false;
 
             // setup starting paddle values and create paddle object
             int paddleWidth = 80;
@@ -81,14 +87,17 @@ namespace BrickBreaker
 
             // setup starting ball values
             int ballX = this.Width / 2 - 10;
-            int ballY = this.Height - paddle.height - 80;
+            int ballY = (this.Height - paddle.height) - 85;
 
             // Creates a new ball
             int xSpeed = 6;
             int ySpeed = 6;
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
-  
+
+
+            pauseLabel.Visible = false;
+
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
             //wait until adrian is done making the levels and importing them into an xml file
@@ -124,6 +133,22 @@ namespace BrickBreaker
                 case Keys.Space:
                     spaceDown = true;
                     break;
+                case Keys.Escape:
+                    if (gameTimer.Enabled)
+                    {
+                        gameTimer.Enabled = false;
+                        //MenuScreen.soundList[5].Play(); //Plays pause sound
+                        pauseLabel.Visible = true;
+                        pauseLabel.Text = $"PAUSED";
+                    }
+                    else
+                    {
+                        gameTimer.Enabled = true;
+                        pauseLabel.Visible = false;
+                    }
+
+                    break;
+
 
             }
         }
@@ -144,33 +169,51 @@ namespace BrickBreaker
                     break;
             }
         }
-        public void NewPowerUps()
-        {
-            powerUpX = randGen.Next(1, 834);
-            powerUpY = 20;
 
-            PowerUpBall pb = new PowerUpBall(powerUpX, powerUpY, 20, 20);
-            powerBall.Add(pb);
-
+   
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
 
 
-            // Move the paddle
-            if (leftArrowDown && paddle.x > 0)
+            //has the ball move witht the arrow clicks
+            if (ballFollow == false)
             {
-                paddle.Move("left");
+                // Move the paddle and the ball together
+                if (leftArrowDown && paddle.x > 0)
+                {
+                    ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
+                    ball.y = (this.Height - paddle.height) - 85;
+                    paddle.Move("left");
+                }
+                if (rightArrowDown && paddle.x < (this.Width - paddle.width))
+                {
+                    ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
+                    ball.y = (this.Height - paddle.height) - 85;
+                    paddle.Move("right");
+                }
+
             }
-            if (rightArrowDown && paddle.x < (this.Width - paddle.width))
+            else
             {
-                paddle.Move("right");
+                // Move the paddle
+                if (leftArrowDown && paddle.x > 0)
+                {
+                    paddle.Move("left");
+                }
+                if (rightArrowDown && paddle.x < (this.Width - paddle.width))
+                {
+                    paddle.Move("right");
+                }
             }
+
+            //is space is pressed then move ball
 
             if (spaceDown == true)
             {
                 ballStart = true;
+                ballFollow = true;
             }
             if (ballStart == true)
             {
@@ -193,9 +236,11 @@ namespace BrickBreaker
                 if (lives == 0)
                 {
                     gameTimer.Enabled = false;
-                    OnEnd();
+                    JuanMethod_OnEnd();
+                    //OnEnd();
                 }
                 ballStart = false;
+                ballFollow = false;
             }
 
             // Check for collision of ball with paddle, (incl. paddle movement)
@@ -206,6 +251,7 @@ namespace BrickBreaker
             {
                 if (ball.BlockCollision(b))
                 {
+                 //   MenuScreen.soundList[12].Play(); //Plays destroy block sound
                     blocks.Remove(b);
                     //bill
                     //hitCheck += 1;
@@ -235,23 +281,6 @@ namespace BrickBreaker
             //    NewPowerUps();
             //}
 
-       
-
-           
-                //foreach (PowerUpBall pb in powerBall)
-                //{
-                //    if (powerUpY > 522)
-                //    {
-                //        powerBall.Remove(pb);
-                //    }
-                //    if (powerBallRec.IntersectsWith(paddleRec))
-                //    {
-                //        powerBall.Remove(pb);
-                //    }
-                //}
-           
-            
-            //powerUpY += 1;
             //redraw the screen
             Refresh();
         }
@@ -261,10 +290,22 @@ namespace BrickBreaker
             // Goes to the game over screen
             Form form = this.FindForm();
             MenuScreen ps = new MenuScreen();
-            
+
             ps.Location = new Point((form.Width - ps.Width) / 2, (form.Height - ps.Height) / 2);
 
             form.Controls.Add(ps);
+            form.Controls.Remove(this);
+        }
+
+        public void JuanMethod_OnEnd()
+        {
+            // Goes to the game over screen
+            Form form = this.FindForm();
+            GameOverScreen gos = new GameOverScreen();
+
+            gos.Location = new Point((form.Width - gos.Width) / 2, (form.Height - gos.Height) / 2);
+
+            form.Controls.Add(gos);
             form.Controls.Remove(this);
         }
 
@@ -296,5 +337,42 @@ namespace BrickBreaker
 
 
         }
+        //public void levelOne()
+        //{
+        //    // current level
+
+
+        //    // variables for block x and y values
+        //    string blockX;
+        //    string blockY;
+        //    int intX;
+        //    int intY;
+
+        //    // create xml reader
+        //    XmlTextReader reader = new XmlTextReader($"Resources/level{level}.xml");
+
+        //    reader.ReadStartElement("level");
+
+        //    //Grabs all the blocks for the current level and adds them to the list
+        //    while (reader.Read())
+        //    {
+        //        reader.ReadToFollowing("x");
+        //        blockX = reader.ReadString();
+
+        //        reader.ReadToFollowing("y");
+        //        blockY = reader.ReadString();
+
+        //        if (blockX != "")
+        //        {
+        //            intX = Convert.ToInt32(blockX);
+        //            intY = Convert.ToInt32(blockY);
+        //            Block b = new Block(intX, intY, level);
+        //            blocks.Add(b);
+        //        }
+        //    }
+        //    // close reader
+        //    reader.Close();
+        //}
     }
+
 }
