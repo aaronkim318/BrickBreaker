@@ -177,13 +177,12 @@ namespace BrickBreaker
         private void playButton_Click(object sender, EventArgs e)
         {
             // Goes to the game screen
-            soundList[0].Play(); //Plays a camera ding
             GameScreen gs = new GameScreen();
             Form form = this.FindForm();
 
             form.Controls.Add(gs);
             form.Controls.Remove(this);
-            //soundList[5].Play(); //Plays an alarm sound from Among Us
+            soundList[0].Play(); //Plays an alarm sound from Among Us
 
             gs.Location = new Point((form.Width - gs.Width) / 2, (form.Height - gs.Height) / 2);
         }
@@ -195,27 +194,26 @@ namespace BrickBreaker
 
         private void howToButton_Click(object sender, EventArgs e)
         {
-            //soundList[4].Play(); //Plays a camera select sound
+            soundList[2].Play(); //Plays a camera select sound
             HowToPlay htp = new HowToPlay();
             Form form = this.FindForm();
 
             form.Controls.Add(htp);
             form.Controls.Remove(this);
-            //soundList[8].Play(); //Plays the extras theme
+            
 
             htp.Location = new Point((form.Width - htp.Width) / 2, (form.Height - htp.Height) / 2);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            //soundList[7].Play(); //Plays an error sound
+            soundList[4].Play(); //Plays an error sound
             
             CreditScreen cs  = new CreditScreen();
             Form form = this.FindForm();
 
             form.Controls.Add(cs);
             form.Controls.Remove(this);
-            //soundList[1].Play(); //Plays camera static
 
             cs.Location = new Point((form.Width - cs.Width) / 2, (form.Height - cs.Height) / 2);
         }

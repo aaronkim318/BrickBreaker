@@ -117,6 +117,12 @@
     <Compile Include="Screens\GameScreen.Designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\VictoryScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\VictoryScreen.Designer.cs">
+      <DependentUpon>VictoryScreen.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\GameScreen.resx">
       <DependentUpon>GameScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\VictoryScreen.resx">
+      <DependentUpon>VictoryScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -209,6 +218,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sound Effects\Vent.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Among Us Space Station %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Cam Static.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Defeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Electrical.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Galaxy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Paddle 2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Victory.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

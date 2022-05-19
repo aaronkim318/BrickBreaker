@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.pauseLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -41,27 +42,29 @@
             // 
             // pauseLabel
             // 
+            this.pauseLabel.BackColor = System.Drawing.Color.Transparent;
             this.pauseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.pauseLabel.ForeColor = System.Drawing.Color.Red;
-            this.pauseLabel.Location = new System.Drawing.Point(225, 96);
+            this.pauseLabel.Location = new System.Drawing.Point(281, 120);
+            this.pauseLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.pauseLabel.Name = "pauseLabel";
-            this.pauseLabel.Size = new System.Drawing.Size(390, 295);
+            this.pauseLabel.Size = new System.Drawing.Size(488, 369);
             this.pauseLabel.TabIndex = 0;
             this.pauseLabel.Text = "label1";
             this.pauseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // GameScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.pauseLabel);
             this.DoubleBuffered = true;
-
-            this.Margin = new System.Windows.Forms.Padding(4);
-          
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "GameScreen";
-            this.Size = new System.Drawing.Size(854, 542);
+            this.Size = new System.Drawing.Size(1068, 678);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameScreen_Paint);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameScreen_KeyUp);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.GameScreen_PreviewKeyDown);

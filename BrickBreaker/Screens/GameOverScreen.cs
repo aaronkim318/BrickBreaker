@@ -14,12 +14,13 @@ namespace BrickBreaker
     {
         public GameOverScreen()
         {
-           // MenuScreen.soundList[11].Play(); //Plays Defeat sound
+          
             InitializeComponent();
         }
 
         private void playButton_Click(object sender, EventArgs e)
         {
+            MenuScreen.soundList[2].Play(); //Plays button sound
             Form form = this.FindForm();
             MenuScreen ps = new MenuScreen();
 

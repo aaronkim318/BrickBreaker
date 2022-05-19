@@ -19,7 +19,7 @@ namespace BrickBreaker
 
         private void backMenuButton_Click(object sender, EventArgs e)
         {
-            //MenuScreen.soundList[4].Play(); //Plays a camera select sound
+            MenuScreen.soundList[2].Play(); //Plays a camera select sound
             MenuScreen ms = new MenuScreen();
             Form form = this.FindForm();
 

@@ -129,13 +129,14 @@ namespace BrickBreaker
                     if (gameTimer.Enabled)
                     {
                         gameTimer.Enabled = false;
-                        //MenuScreen.soundList[5].Play(); //Plays pause sound
+                        MenuScreen.soundList[3].Play(); //Plays pause sound
                         pauseLabel.Visible = true;
                         pauseLabel.Text = $"PAUSED";
                     }
                     else
                     {
                         gameTimer.Enabled = true;
+                        MenuScreen.soundList[3].Play(); //Plays pause sound
                         pauseLabel.Visible = false;
                     }
 
@@ -216,6 +217,7 @@ namespace BrickBreaker
             //is space is pressed then move ball
             if (spaceDown == true)
             {
+
                 ballStart = true;
                 ballFollow = true;
             }
@@ -255,7 +257,7 @@ namespace BrickBreaker
             {
                 if (ball.BlockCollision(b))
                 {
-                 //   MenuScreen.soundList[12].Play(); //Plays destroy block sound
+                    MenuScreen.soundList[8].Play(); //Plays destroy block sound
                     blocks.Remove(b);
                     //bill
                     hitCheck += 1;
@@ -263,7 +265,8 @@ namespace BrickBreaker
                     if (blocks.Count == 0)
                     {
                         gameTimer.Enabled = false;
-                        OnEnd();
+                        JuanMethod_OnVictory();
+                      //  OnEnd();
                     }
 
                     break;
@@ -301,6 +304,18 @@ namespace BrickBreaker
             gos.Location = new Point((form.Width - gos.Width) / 2, (form.Height - gos.Height) / 2);
 
             form.Controls.Add(gos);
+            form.Controls.Remove(this);
+        }
+
+        public void JuanMethod_OnVictory()
+        {
+            // Goes to the victory screen
+            Form form = this.FindForm();
+            VictoryScreen vs = new VictoryScreen();
+
+            vs.Location = new Point((form.Width - vs.Width) / 2, (form.Height - vs.Height) / 2);
+
+            form.Controls.Add(vs);
             form.Controls.Remove(this);
         }
 
