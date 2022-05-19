@@ -72,6 +72,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HighScoreScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HighScoreScreen.Designer.cs">
+      <DependentUpon>HighScoreScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Paddle.cs" />
     <Compile Include="PowerUpBall.cs" />
     <Compile Include="Program.cs" />
@@ -90,6 +96,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HighScoreScreen.resx">
+      <DependentUpon>HighScoreScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

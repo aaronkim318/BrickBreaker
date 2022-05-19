@@ -88,14 +88,7 @@ namespace BrickBreaker
             int ySpeed = 6;
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
-
-           
-
-            //Bill
-          
-           
-
-           
+  
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
             //wait until adrian is done making the levels and importing them into an xml file
@@ -215,7 +208,7 @@ namespace BrickBreaker
                 {
                     blocks.Remove(b);
                     //bill
-                    hitCheck += 1;
+                    //hitCheck += 1;
 
                     if (blocks.Count == 0)
                     {
@@ -228,42 +221,37 @@ namespace BrickBreaker
             }
 
             //bill
-            Rectangle powerBallRec = new Rectangle(powerUpX, powerUpY, 20, 20);
-            Rectangle paddleRec = new Rectangle(paddle.x, paddle.y, paddle.width, paddle.height);
+            //Rectangle powerBallRec = new Rectangle(powerUpX, powerUpY, 20, 20);
+            //Rectangle paddleRec = new Rectangle(paddle.x, paddle.y, paddle.width, paddle.height);
 
 
-            foreach (PowerUpBall pb in powerBall)
-            {
-                if (powerBallRec.IntersectsWith(paddleRec))
-                {
-                    powerBall.Remove(pb);
-                }
-            }
+           
+            //if (hitCheck == 2)
+            //{
+            //    NewPowerUps();
+            //}
+            //if (hitCheck == 12)
+            //{
+            //    NewPowerUps();
+            //}
 
-            if (hitCheck == 2)
-            {
-                NewPowerUps();
-            }
-            if (hitCheck == 12)
-            {
-                NewPowerUps();
-            }
-            try
-            {
-                foreach (PowerUpBall pb in powerBall)
-                {
-                    if (powerUpY > 522)
-                    {
-                        powerBall.Remove(pb);
-                    }
-                }
-            }
-            catch
-            {
+       
 
-            }
+           
+                //foreach (PowerUpBall pb in powerBall)
+                //{
+                //    if (powerUpY > 522)
+                //    {
+                //        powerBall.Remove(pb);
+                //    }
+                //    if (powerBallRec.IntersectsWith(paddleRec))
+                //    {
+                //        powerBall.Remove(pb);
+                //    }
+                //}
+           
             
-            powerUpY += 1;
+            //powerUpY += 1;
             //redraw the screen
             Refresh();
         }
@@ -296,13 +284,13 @@ namespace BrickBreaker
             e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
 
 
-            //Bill
+            ////Bill
 
 
-            foreach (PowerUpBall pb in powerBall)
-            {
-                e.Graphics.FillRectangle(ballBrush, this.Width / 2 - powerUpWidth, powerUpY, powerUpWidth, powerUpHeight);
-            }
+            //foreach (PowerUpBall pb in powerBall)
+            //{
+            //    e.Graphics.FillRectangle(ballBrush, this.Width / 2 - powerUpWidth, powerUpY, powerUpWidth, powerUpHeight);
+            //}
             
 
 
