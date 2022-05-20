@@ -12,9 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
-using System.Threading;
 using System.Xml;
-
 
 namespace BrickBreaker
 {
@@ -28,11 +26,8 @@ namespace BrickBreaker
         //boolean for the ball movement
         Boolean ballStart;
 
-
-
         //boolean for key presses and ball
         Boolean spaceDown, ballFollow;
-
 
         // Game values
         int lives;
@@ -55,12 +50,8 @@ namespace BrickBreaker
 
         //bill
         int hitCheck = 0;
-
-
-
         Random randGen = new Random(6);
         // int randNum = randGen.Next(0, 10);
-
         public GameScreen()
         {
             InitializeComponent();
@@ -95,8 +86,9 @@ namespace BrickBreaker
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
-
             pauseLabel.Visible = false;
+
+
 
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
@@ -169,14 +161,29 @@ namespace BrickBreaker
                     break;
             }
         }
+        public void PowerUps()
+        {
+            //     int hitCheck = 0;
 
-   
+            //Random randGen = new Random();
+            //    int randNum = randGen.Next(0, 10);
+
+            //      foreach (Block b in blocks)
+            //    {
+            //        if (ball.BlockCollision(b))
+            //        {
+            //         hitCheck +=  1;
+            //        }
+            //     }
+
+            //    if(hitCheck == 1)
+            //    {
+            //        paddle.width = 150;
+            //    }
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-
-
             //has the ball move witht the arrow clicks
             if (ballFollow == false)
             {
@@ -193,7 +200,6 @@ namespace BrickBreaker
                     ball.y = (this.Height - paddle.height) - 85;
                     paddle.Move("right");
                 }
-
             }
             else
             {
@@ -207,9 +213,7 @@ namespace BrickBreaker
                     paddle.Move("right");
                 }
             }
-
             //is space is pressed then move ball
-
             if (spaceDown == true)
             {
                 ballStart = true;
@@ -254,7 +258,7 @@ namespace BrickBreaker
                  //   MenuScreen.soundList[12].Play(); //Plays destroy block sound
                     blocks.Remove(b);
                     //bill
-                    //hitCheck += 1;
+                    hitCheck += 1;
 
                     if (blocks.Count == 0)
                     {
@@ -267,19 +271,10 @@ namespace BrickBreaker
             }
 
             //bill
-            //Rectangle powerBallRec = new Rectangle(powerUpX, powerUpY, 20, 20);
-            //Rectangle paddleRec = new Rectangle(paddle.x, paddle.y, paddle.width, paddle.height);
-
-
-           
-            //if (hitCheck == 2)
-            //{
-            //    NewPowerUps();
-            //}
-            //if (hitCheck == 12)
-            //{
-            //    NewPowerUps();
-            //}
+            //if (hitCheck ==)
+            //      {
+            //           paddle.width = 150;
+            //      }
 
             //redraw the screen
             Refresh();
@@ -323,19 +318,6 @@ namespace BrickBreaker
 
             // Draws ball
             e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
-
-
-            ////Bill
-
-
-            //foreach (PowerUpBall pb in powerBall)
-            //{
-            //    e.Graphics.FillRectangle(ballBrush, this.Width / 2 - powerUpWidth, powerUpY, powerUpWidth, powerUpHeight);
-            //}
-            
-
-
-
         }
         //public void levelOne()
         //{
