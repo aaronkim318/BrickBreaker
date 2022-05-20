@@ -188,10 +188,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="level1.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Cam Static.gif" />
+    <None Include="level1.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sound Effects\AlarmWav.wav" />
