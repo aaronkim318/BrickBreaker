@@ -79,19 +79,19 @@ namespace BrickBreaker
             // Collision with left wall
             if (x <= 0)
             {
-                //MenuScreen.soundList[9].Play(); //Plays Bounce sound
+                MenuScreen.soundList[6].Play(); //Plays Bounce sound
                 xSpeed *= -1;
             }
             // Collision with right wall
             if (x >= (UC.Width - size))
             {
-                //MenuScreen.soundList[9].Play(); //Plays Bounce sound
+                MenuScreen.soundList[6].Play(); //Plays Bounce sound
                 xSpeed *= -1;
             }
            // Collision with top wall
             if (y <= 2)
             {
-                //MenuScreen.soundList[9].Play(); //Plays Bounce sound
+                MenuScreen.soundList[6].Play(); //Plays Bounce sound
                 ySpeed *= -1;
             }
         }
@@ -104,7 +104,7 @@ namespace BrickBreaker
 
             if (y >= UC.Height)
             {
-                //MenuScreen.soundList[8].Play(); //Plays a sad sound (JUAN)
+                MenuScreen.soundList[5].Play(); //Plays a sad sound (JUAN)
                 didCollide = true;
             }
 

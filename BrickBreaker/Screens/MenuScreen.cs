@@ -45,34 +45,40 @@ namespace BrickBreaker
 
         public void JuanMethod_Sounds() //Method meant to store sounds (Commented out due to Project Manager) (Resources in the google drive folder)
         {
-            //    SoundPlayer AmongUsMT = new SoundPlayer(Properties.Resources.);
-            //    SoundPlayer AmongUsCam = new SoundPlayer(Properties.Resources.);
-            //    SoundPlayer ClickPlay = new SoundPlayer(Properties.Resources.);
-            //    SoundPlayer ClickHowToPlay = new SoundPlayer(Properties.Resources.);
-              SoundPlayer AlarmStartUp = new SoundPlayer(Properties.Resources.AlarmWav);
-            //    SoundPlayer PauseSound = new SoundPlayer(Properties.Resources.);
-            //    SoundPlayer CreditSound = new SoundPlayer(Properties.Resources.);
-            //    SoundPlayer HowToPlayMT = new SoundPlayer(Properties.Resources.);
-            //    SoundPlayer BallMiss = new SoundPlayer(Properties.Resources.);
-            //    SoundPlayer BallBounce = new SoundPlayer(Properties.Resources.);
-            //    SoundPlayer EnterVent = new SoundPlayer(Properties.Resources.);
+
+            SoundPlayer AlarmStartUp = new SoundPlayer(Properties.Resources.AlarmWav);
+            SoundPlayer ClickPlay = new SoundPlayer(Properties.Resources.Correct);
+            SoundPlayer ClickHowToPlay = new SoundPlayer(Properties.Resources.Blip_Select31);
+            SoundPlayer PauseSound = new SoundPlayer(Properties.Resources.Super_Mario_64_Pause_Sound);
+            SoundPlayer CreditSound = new SoundPlayer(Properties.Resources.nunu);
+            SoundPlayer BallMiss = new SoundPlayer(Properties.Resources.Beewoop);
+            SoundPlayer BallBounce = new SoundPlayer(Properties.Resources.Ball_Bounce);
+            SoundPlayer EnterVent = new SoundPlayer(Properties.Resources.Vent);
+            SoundPlayer BrickBroken = new SoundPlayer(Properties.Resources.Brick_Broken);
+
+            //----------------Long Sounds----------------//
+            SoundPlayer AmongUsMT = new SoundPlayer(Properties.Resources.Main_Theme);
+            SoundPlayer CreditsMT = new SoundPlayer(Properties.Resources.cams_ambience);
             //    SoundPlayer GameOverSound = new SoundPlayer(Properties.Resources.);
-            //    SoundPlayer BrickBroken = new SoundPlayer(Properties.Resources.);
+            SoundPlayer HowToPlayMT = new SoundPlayer(Properties.Resources.HowToPlay_Theme);
+
+            //-------------------------------------------//
 
 
-            //    soundList.Add(AmongUsMT);
-            //    soundList.Add(AmongUsCam);
-            //    soundList.Add(ClickPlay);
-            //    soundList.Add(ClickHowToPlay);
-               soundList.Add(AlarmStartUp);
-            //    soundList.Add(PauseSound);
-            //    soundList.Add(CreditSound);
-            //    soundList.Add(HowToPlayMT);
-            //    soundList.Add(BallMiss);
-            //    soundList.Add(BallBounce);
-            //    soundList.Add(EnterVent);
-            //    soundList.Add(GameOverSound);
-            //    soundList.Add(BrickBroken);
+            soundList.Add(AlarmStartUp);
+            soundList.Add(ClickPlay);
+            soundList.Add(ClickHowToPlay);
+            soundList.Add(PauseSound);
+            soundList.Add(CreditSound);
+            soundList.Add(BallMiss);
+            soundList.Add(BallBounce);
+            soundList.Add(EnterVent);
+            soundList.Add(BrickBroken);
+            soundList.Add(AmongUsMT);
+            soundList.Add(CreditsMT);
+            soundList.Add(HowToPlayMT);
+
+
         }
 
         public void JuanMethod_FlyingSquares()  //Method meant for creating and putting the squares into a list (JUAN)
