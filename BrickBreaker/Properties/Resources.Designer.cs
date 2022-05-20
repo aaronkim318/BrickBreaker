@@ -70,8 +70,47 @@ namespace BrickBreaker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt; 
-        ///.
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        ///&lt;level&gt;
+        ///	&lt;brick&gt;
+        ///		&lt;x&gt;34&lt;/x&gt;
+        ///		&lt;y&gt;30&lt;/y&gt;
+        ///	&lt;/brick&gt;
+        ///	&lt;brick&gt;
+        ///		&lt;x&gt;106&lt;/x&gt;
+        ///		&lt;y&gt;30&lt;/y&gt;
+        ///	&lt;/brick&gt;
+        ///	&lt;brick&gt;
+        ///		&lt;x&gt;178&lt;/x&gt;
+        ///		&lt;y&gt;30&lt;/y&gt;
+        ///	&lt;/brick&gt;
+        ///	&lt;brick&gt;
+        ///		&lt;x&gt;323&lt;/x&gt;
+        ///		&lt;y&gt;30&lt;/y&gt;
+        ///	&lt;/brick&gt;
+        ///	&lt;brick&gt;
+        ///		&lt;x&gt;467&lt;/x&gt;
+        ///		&lt;y&gt;30&lt;/y&gt;
+        ///	&lt;/brick&gt;
+        ///	&lt;brick&gt;
+        ///		&lt;x&gt;611&lt;/x&gt;
+        ///		&lt;y&gt;30&lt;/y&gt;
+        ///	&lt;/brick&gt;
+        ///	&lt;brick&gt;
+        ///		&lt;x&gt;683&lt;/x&gt;
+        ///		&lt;y&gt;30&lt;/y&gt;
+        ///	&lt;/brick&gt;
+        ///	&lt;brick&gt;
+        ///		&lt;x&gt;755&lt;/x&gt;
+        ///		&lt;y&gt;30&lt;/y&gt;
+        ///	&lt;/brick&gt;
+        ///	&lt;brick&gt;
+        ///		&lt;x&gt;70&lt;/x&gt;
+        ///		&lt;y&gt;72&lt;/y&gt;
+        ///	&lt;/brick&gt;
+        ///	&lt;brick&gt;
+        ///		&lt;x&gt;142&lt;/x&gt;
+        ///		&lt;y&gt;72&lt; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string level1 {
             get {

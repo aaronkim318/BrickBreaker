@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Ball.cs" />
     <Compile Include="Block.cs" />
+    <Compile Include="PowerUp1.cs" />
     <Compile Include="Screens\GameOverScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -185,6 +186,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sound Effects\AlarmWav.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Resources\level1.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
