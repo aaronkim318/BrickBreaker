@@ -55,7 +55,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Font = new System.Drawing.Font("OCR A Extended", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(40, 147);
@@ -76,7 +76,7 @@
             this.backMenuButton.Font = new System.Drawing.Font("OCR A Extended", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backMenuButton.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.backMenuButton.Location = new System.Drawing.Point(362, 561);
-            this.backMenuButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backMenuButton.Margin = new System.Windows.Forms.Padding(4);
             this.backMenuButton.Name = "backMenuButton";
             this.backMenuButton.Size = new System.Drawing.Size(228, 98);
             this.backMenuButton.TabIndex = 5;
@@ -119,6 +119,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackgroundImage = global::BrickBreaker.Properties.Resources.Cam_Static;
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);

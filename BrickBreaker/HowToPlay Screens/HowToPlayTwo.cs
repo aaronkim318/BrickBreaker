@@ -14,6 +14,7 @@ namespace BrickBreaker
     {
         public HowToPlayTwo()
         {
+            MenuScreen.soundList[11].Play();
             InitializeComponent();
         }
 

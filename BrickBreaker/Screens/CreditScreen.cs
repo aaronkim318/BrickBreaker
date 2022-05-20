@@ -14,6 +14,7 @@ namespace BrickBreaker
     {
         public CreditScreen()
         {
+            MenuScreen.soundList[10].Play();
             InitializeComponent();
         }
 

@@ -25,8 +25,8 @@ namespace BrickBreaker
 
         public MenuScreen()
         {
-               JuanMethod_Sounds(); //Declares sound method
-            //soundList[0].Play(); //Plays the main theme of Among Us
+            JuanMethod_Sounds(); //Declares sound method
+            soundList[9].Play(); //Plays the main theme of Among Us
             JuanMethod_FlyingSquares(); //Declares the new square method
             InitializeComponent();
         }
@@ -57,15 +57,11 @@ namespace BrickBreaker
             SoundPlayer BrickBroken = new SoundPlayer(Properties.Resources.Brick_Broken);
 
             //----------------Long Sounds----------------//
-            //    SoundPlayer AmongUsMT = new SoundPlayer(Properties.Resources.);
-            //    SoundPlayer AmongUsCam = new SoundPlayer(Properties.Resources.);
+                SoundPlayer AmongUsMT = new SoundPlayer(Properties.Resources.Main_Theme);
+                SoundPlayer CreditsMT = new SoundPlayer(Properties.Resources.cams_ambience);
             //    SoundPlayer GameOverSound = new SoundPlayer(Properties.Resources.);
-            //    SoundPlayer HowToPlayMT = new SoundPlayer(Properties.Resources.);
+                SoundPlayer HowToPlayMT = new SoundPlayer(Properties.Resources.HowToPlay_Theme);
 
-            //    soundList.Add(AmongUsMT);
-            //    soundList.Add(AmongUsCam);.
-            //    soundList.Add(GameOverSound);
-            //    soundList.Add(HowToPlayMT);
             //-------------------------------------------//
 
 
@@ -78,6 +74,9 @@ namespace BrickBreaker
             soundList.Add(BallBounce);
             soundList.Add(EnterVent);
             soundList.Add(BrickBroken);
+            soundList.Add(AmongUsMT);
+            soundList.Add(CreditsMT);
+            soundList.Add(HowToPlayMT);
         }
 
         public void JuanMethod_FlyingSquares()  //Method meant for creating and putting the squares into a list (JUAN)
