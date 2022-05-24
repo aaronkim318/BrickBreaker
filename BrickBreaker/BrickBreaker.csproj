@@ -66,10 +66,11 @@
   <ItemGroup>
     <Compile Include="Ball.cs" />
     <Compile Include="Block.cs" />
-    <Compile Include="GameOverScreen.cs">
+    <Compile Include="PowerUp1.cs" />
+    <Compile Include="Screens\GameOverScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GameOverScreen.Designer.cs">
+    <Compile Include="Screens\GameOverScreen.Designer.cs">
       <DependentUpon>GameOverScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\CreditScreen.cs">
@@ -117,10 +118,16 @@
     <Compile Include="Screens\GameScreen.Designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="VictoryScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VictoryScreen.Designer.cs">
+      <DependentUpon>VictoryScreen.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GameOverScreen.resx">
+    <EmbeddedResource Include="Screens\GameOverScreen.resx">
       <DependentUpon>GameOverScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HowToPlay Screens\HowToPlay.resx">
@@ -151,6 +158,9 @@
     <EmbeddedResource Include="Screens\GameScreen.resx">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VictoryScreen.resx">
+      <DependentUpon>VictoryScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -177,9 +187,79 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="level1.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Cam Static.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sound Effects\AlarmWav.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Resources\level1.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Music Themes\cams_ambience.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Music Themes\HowToPlay Theme.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Music Themes\Main Theme.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sound Effects\Ball Bounce.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sound Effects\Beewoop.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sound Effects\Blip_Select31.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sound Effects\Brick Broken.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sound Effects\Correct.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sound Effects\nunu.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sound Effects\Super Mario 64 Pause Sound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sound Effects\Vent.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Among Us Space Station %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Cam Static.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Defeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Electrical.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Galaxy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Paddle 2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Victory.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
