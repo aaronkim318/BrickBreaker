@@ -38,7 +38,7 @@
             this.menuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.menuButton.Font = new System.Drawing.Font("OCR A Extended", 24F, System.Drawing.FontStyle.Bold);
             this.menuButton.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.menuButton.Location = new System.Drawing.Point(659, 717);
+            this.menuButton.Location = new System.Drawing.Point(460, 560);
             this.menuButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.menuButton.Name = "menuButton";
             this.menuButton.Size = new System.Drawing.Size(173, 95);
@@ -57,7 +57,7 @@
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "VictoryScreen";
-            this.Size = new System.Drawing.Size(1424, 834);
+            this.Size = new System.Drawing.Size(1068, 678);
             this.ResumeLayout(false);
 
         }

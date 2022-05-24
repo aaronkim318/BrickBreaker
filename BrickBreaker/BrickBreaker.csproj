@@ -259,7 +259,7 @@
     <None Include="Resources\Images\Victory.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Defeat.wav" />
+    <None Include="Resources\Sound Effects\Defeat.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
