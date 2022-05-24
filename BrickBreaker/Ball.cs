@@ -140,7 +140,7 @@ namespace BrickBreaker
             //revereses speed on contact 
             if (ballRec.IntersectsWith(paddleRec))
             {
-                //MenuScreen.soundList[9].Play(); //Plays Bounce sound
+                MenuScreen.soundList[6].Play(); //Plays Bounce sound
                 //moves ball above paddle 
                 y = p.y - size;
 

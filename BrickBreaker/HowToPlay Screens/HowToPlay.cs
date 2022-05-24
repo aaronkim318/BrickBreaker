@@ -19,7 +19,7 @@ namespace BrickBreaker
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            //MenuScreen.soundList[4].Play(); //Plays a camera select sound
+            MenuScreen.soundList[2].Play(); //Plays a camera select sound
             MenuScreen ms = new MenuScreen();
             Form form = this.FindForm();
 
@@ -31,13 +31,13 @@ namespace BrickBreaker
 
         private void nextButtonOne_Click(object sender, EventArgs e)
         {
-            //MenuScreen.soundList[4].Play(); //Plays a camera select sound
+            MenuScreen.soundList[2].Play(); //Plays a camera select sound
             HowToPlayTwo htp2 = new HowToPlayTwo();
             Form form = this.FindForm();
 
             form.Controls.Add(htp2);
             form.Controls.Remove(this);
-            //MenuScreen.soundList[8].Play(); //Plays the extras theme
+            //MenuScreen.soundList[11].Play(); //Plays the extras theme
 
             htp2.Location = new Point((form.Width - htp2.Width) / 2, (form.Height - htp2.Height) / 2);
         }

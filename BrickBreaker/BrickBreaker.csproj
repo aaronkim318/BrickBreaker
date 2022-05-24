@@ -118,10 +118,10 @@
     <Compile Include="Screens\GameScreen.Designer.cs">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="VictoryScreen.cs">
+    <Compile Include="Screens\VictoryScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="VictoryScreen.Designer.cs">
+    <Compile Include="Screens\VictoryScreen.Designer.cs">
       <DependentUpon>VictoryScreen.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
@@ -158,7 +158,7 @@
     <EmbeddedResource Include="Screens\GameScreen.resx">
       <DependentUpon>GameScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VictoryScreen.resx">
+    <EmbeddedResource Include="Screens\VictoryScreen.resx">
       <DependentUpon>VictoryScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
@@ -257,6 +257,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Images\Victory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Defeat.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

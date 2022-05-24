@@ -41,10 +41,10 @@
             this.playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.playButton.Font = new System.Drawing.Font("OCR A Extended", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playButton.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.playButton.Location = new System.Drawing.Point(408, 577);
+            this.playButton.Location = new System.Drawing.Point(418, 561);
             this.playButton.Margin = new System.Windows.Forms.Padding(4);
             this.playButton.Name = "playButton";
-            this.playButton.Size = new System.Drawing.Size(242, 96);
+            this.playButton.Size = new System.Drawing.Size(193, 96);
             this.playButton.TabIndex = 2;
             this.playButton.Text = "Menu";
             this.playButton.UseVisualStyleBackColor = false;

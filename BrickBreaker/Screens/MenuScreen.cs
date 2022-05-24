@@ -26,7 +26,7 @@ namespace BrickBreaker
         public MenuScreen()
         {
                JuanMethod_Sounds(); //Declares sound method
-            //soundList[0].Play(); //Plays the main theme of Among Us
+            soundList[9].Play(); //Plays the main theme of Among Us
             JuanMethod_FlyingSquares(); //Declares the new square method
             InitializeComponent();
         }
@@ -55,6 +55,7 @@ namespace BrickBreaker
             SoundPlayer BallBounce = new SoundPlayer(Properties.Resources.Ball_Bounce);
             SoundPlayer EnterVent = new SoundPlayer(Properties.Resources.Vent);
             SoundPlayer BrickBroken = new SoundPlayer(Properties.Resources.Brick_Broken);
+            SoundPlayer DefeatMT = new SoundPlayer(Properties.Resources.Defeat1);
 
             //----------------Long Sounds----------------//
             SoundPlayer AmongUsMT = new SoundPlayer(Properties.Resources.Main_Theme);
@@ -65,18 +66,19 @@ namespace BrickBreaker
             //-------------------------------------------//
 
 
-            soundList.Add(AlarmStartUp);
-            soundList.Add(ClickPlay);
-            soundList.Add(ClickHowToPlay);
-            soundList.Add(PauseSound);
-            soundList.Add(CreditSound);
-            soundList.Add(BallMiss);
-            soundList.Add(BallBounce);
-            soundList.Add(EnterVent);
-            soundList.Add(BrickBroken);
-            soundList.Add(AmongUsMT);
-            soundList.Add(CreditsMT);
-            soundList.Add(HowToPlayMT);
+            soundList.Add(AlarmStartUp); //0
+            soundList.Add(ClickPlay);    //1
+            soundList.Add(ClickHowToPlay); //2
+            soundList.Add(PauseSound); //3
+            soundList.Add(CreditSound); //4
+            soundList.Add(BallMiss); //5
+            soundList.Add(BallBounce); //6
+            soundList.Add(EnterVent); //7
+            soundList.Add(BrickBroken); //8
+            soundList.Add(AmongUsMT); //9
+            soundList.Add(CreditsMT); //10
+            soundList.Add(HowToPlayMT); //11
+            soundList.Add(DefeatMT); //12
 
 
         }
@@ -178,13 +180,13 @@ namespace BrickBreaker
         private void playButton_Click(object sender, EventArgs e)
         {
             // Goes to the game screen
-            soundList[0].Play(); //Plays a camera ding
+            soundList[1].Play(); //Plays a camera ding
             GameScreen gs = new GameScreen();
             Form form = this.FindForm();
 
             form.Controls.Add(gs);
             form.Controls.Remove(this);
-            //soundList[5].Play(); //Plays an alarm sound from Among Us
+            soundList[0].Play(); //Plays an alarm sound from Among Us
 
             gs.Location = new Point((form.Width - gs.Width) / 2, (form.Height - gs.Height) / 2);
         }
@@ -196,27 +198,27 @@ namespace BrickBreaker
 
         private void howToButton_Click(object sender, EventArgs e)
         {
-            //soundList[4].Play(); //Plays a camera select sound
+            soundList[2].Play(); //Plays a camera select sound
             HowToPlay htp = new HowToPlay();
             Form form = this.FindForm();
 
             form.Controls.Add(htp);
             form.Controls.Remove(this);
-            //soundList[8].Play(); //Plays the extras theme
+            //soundList[11].Play(); //Plays the extras theme
 
             htp.Location = new Point((form.Width - htp.Width) / 2, (form.Height - htp.Height) / 2);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            //soundList[7].Play(); //Plays an error sound
+            soundList[4].Play(); //Plays an error sound
             
             CreditScreen cs  = new CreditScreen();
             Form form = this.FindForm();
 
             form.Controls.Add(cs);
             form.Controls.Remove(this);
-            //soundList[1].Play(); //Plays camera static
+            soundList[10].Play(); //Plays camera static
 
             cs.Location = new Point((form.Width - cs.Width) / 2, (form.Height - cs.Height) / 2);
         }
