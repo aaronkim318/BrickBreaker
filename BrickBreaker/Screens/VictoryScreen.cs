@@ -14,6 +14,7 @@ namespace BrickBreaker
     {
         public VictoryScreen()
         {
+            MenuScreen.soundList[13].Play();
             InitializeComponent();
         }
 

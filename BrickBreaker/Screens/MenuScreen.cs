@@ -55,12 +55,14 @@ namespace BrickBreaker
             SoundPlayer BallBounce = new SoundPlayer(Properties.Resources.Ball_Bounce);
             SoundPlayer EnterVent = new SoundPlayer(Properties.Resources.Vent);
             SoundPlayer BrickBroken = new SoundPlayer(Properties.Resources.Brick_Broken);
-            SoundPlayer DefeatMT = new SoundPlayer(Properties.Resources.Defeat1);
+
 
             //----------------Long Sounds----------------//
             SoundPlayer AmongUsMT = new SoundPlayer(Properties.Resources.Main_Theme);
             SoundPlayer CreditsMT = new SoundPlayer(Properties.Resources.cams_ambience);
             SoundPlayer HowToPlayMT = new SoundPlayer(Properties.Resources.HowToPlay_Theme);
+            SoundPlayer DefeatMT = new SoundPlayer(Properties.Resources.Defeat1);
+            SoundPlayer VictoryMT = new SoundPlayer(Properties.Resources.Victory1);
 
             //-------------------------------------------//
 
@@ -78,6 +80,7 @@ namespace BrickBreaker
             soundList.Add(CreditsMT); //10
             soundList.Add(HowToPlayMT); //11
             soundList.Add(DefeatMT); //12
+            soundList.Add(VictoryMT); //13
 
 
         }

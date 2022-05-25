@@ -247,7 +247,6 @@ namespace BrickBreaker
             //is space is pressed then move ball
             if (spaceDown == true)
             {
-               // MenuScreen.soundList[1].Play(); //Plays pause sound
                 ballStart = true;
                 ballFollow = true;
             }

@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.htpTitle = new System.Windows.Forms.Label();
             this.backButtonHowTo = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -74,11 +75,23 @@
             this.backButtonHowTo.UseVisualStyleBackColor = false;
             this.backButtonHowTo.Click += new System.EventHandler(this.backButtonHowTo_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label2.Font = new System.Drawing.Font("OCR A Extended", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(442, 297);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(182, 83);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "N/A";
+            // 
             // HowToPlayThree
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.backButtonHowTo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.htpTitle);
@@ -94,5 +107,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label htpTitle;
         private System.Windows.Forms.Button backButtonHowTo;
+        private System.Windows.Forms.Label label2;
     }
 }
