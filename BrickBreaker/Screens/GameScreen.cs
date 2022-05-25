@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using System.Xml;
 
 namespace BrickBreaker
 {
@@ -30,13 +31,15 @@ namespace BrickBreaker
         Ball ball;
 
         // list of all blocks for current level
-        List<Block> blocks = new List<Block>();
+       List<Block> blocks = new List<Block>();
+
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
         SolidBrush blockBrush = new SolidBrush(Color.Red);
-
+        
+        
         #endregion
 
         public GameScreen()
@@ -73,29 +76,114 @@ namespace BrickBreaker
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
             #region Creates blocks for generic level. Need to replace with code that loads levels.
-            
+
             //TODO - replace all the code in this region eventually with code that loads levels from xml files
-            
-            blocks.Clear();
-            int x = 10;
 
-            while (blocks.Count < 12)
+            string X, y, hp, colour;
+
+
+            XmlReader reader = XmlReader.Create("level.xml");
+
+
+            while (reader.Read())
+
             {
-                x += 57;
-                Block b1 = new Block(x, 10, 1, Color.White);
-                blocks.Add(b1);
-            }
 
+                    if (reader.NodeType == XmlNodeType.Text)
+
+                    {
+
+                        X = reader.ReadString();
+
+
+
+                        reader.ReadToNextSibling("y");
+
+                        y = reader.ReadString();
+
+
+
+                        reader.ReadToNextSibling("hp");
+
+                        hp = reader.ReadString();
+
+
+
+                        reader.ReadToNextSibling("colour");
+
+                        colour = reader.ReadString();
+               Color color = Color.FromName(colour);
+
+                    Block b2 = new Block(Convert.ToInt32(X), Convert.ToInt32(y), Convert.ToInt32(hp), Convert.ToString(colour));
+                        blocks.Add(b2);
+                    
+                    }
+                }
+
+            
+        
+
+          
+        
             #endregion
-
+      
             // start the game engine loop
             gameTimer.Enabled = true;
+        }
+        public void nextlevel()
+        {
+            string X, y, hp, colour;
+
+
+            XmlReader reader = XmlReader.Create("level2.xml");
+
+
+            while (reader.Read())
+
+            {
+
+                if (reader.NodeType == XmlNodeType.Text)
+
+                {
+
+                    X = reader.ReadString();
+
+
+
+                    reader.ReadToNextSibling("y");
+
+                    y = reader.ReadString();
+
+
+
+                    reader.ReadToNextSibling("hp");
+
+                    hp = reader.ReadString();
+
+
+
+                    reader.ReadToNextSibling("colour");
+
+                    colour = reader.ReadString();
+                    Color color = Color.FromName(colour);
+
+                    Block b2 = new Block(Convert.ToInt32(X), Convert.ToInt32(y), Convert.ToInt32(hp), Convert.ToString(colour));
+                    blocks.Add(b2);
+
+
+               
+
+                }
+         
+            }
+
         }
 
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             //player 1 button presses
-            switch (e.KeyCode)
+
+                    ;switch (e.KeyCode)
             {
                 case Keys.Left:
                     leftArrowDown = true;
@@ -151,11 +239,11 @@ namespace BrickBreaker
                 ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
                 ball.y = (this.Height - paddle.height) - 85;
 
-                if (lives == 0)
+               if (lives == 0)
                 {
-                    gameTimer.Enabled = false;
-                    OnEnd();
-                }
+                   gameTimer.Enabled = false;
+                  OnEnd();
+                } 
             }
 
             // Check for collision of ball with paddle, (incl. paddle movement)
@@ -167,12 +255,19 @@ namespace BrickBreaker
                 if (ball.BlockCollision(b))
                 {
                     blocks.Remove(b);
+                   
+                            if (blocks.Count == 0)
+                            {
 
-                    if (blocks.Count == 0)
-                    {
-                        gameTimer.Enabled = false;
-                        OnEnd();
-                    }
+                                nextlevel();
+                        
+
+
+                           }
+
+                  
+
+
 
                     break;
                 }
@@ -201,9 +296,12 @@ namespace BrickBreaker
             e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
 
             // Draws blocks
+           
             foreach (Block b in blocks)
             {
-                e.Graphics.FillRectangle(blockBrush, b.x, b.y, b.width, b.height);
+               
+             e.Graphics.FillRectangle(blockBrush, b.x, b.y, b.width, b.height) ;
+            
             }
 
             // Draws ball
