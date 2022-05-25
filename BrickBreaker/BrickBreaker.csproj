@@ -188,14 +188,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="level1.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Cam Static.gif" />
-
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sound Effects\AlarmWav.wav" />
@@ -266,20 +259,7 @@
     <None Include="Resources\Images\Victory.png" />
   </ItemGroup>
   <ItemGroup>
-
-
     <Content Include="bin\Debug\Resources\level2.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="level.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="level2.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

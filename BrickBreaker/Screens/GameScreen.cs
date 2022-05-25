@@ -41,16 +41,14 @@ namespace BrickBreaker
 
 
         // list of all blocks for current level
-       List<Block> blocks = new List<Block>();
-
+        List<Block> blocks = new List<Block>();
 
 
         // Brushes
         SolidBrush paddleBrush = new SolidBrush(Color.White);
         SolidBrush ballBrush = new SolidBrush(Color.White);
         SolidBrush blockBrush = new SolidBrush(Color.Red);
-        
-        
+
         #endregion
 
         //bill
@@ -93,7 +91,6 @@ namespace BrickBreaker
             int ballSize = 20;
             ball = new Ball(ballX, ballY, xSpeed, ySpeed, ballSize);
 
-
             pauseLabel.Visible = false;
 
 
@@ -106,90 +103,18 @@ namespace BrickBreaker
             levelOne();
             #endregion
 
-
-
-
-                        reader.ReadToNextSibling("hp");
-
-                        hp = reader.ReadString();
-
-
-
-                        reader.ReadToNextSibling("colour");
-
-                        colour = reader.ReadString();
-               Color color = Color.FromName(colour);
-
-                    Block b2 = new Block(Convert.ToInt32(X), Convert.ToInt32(y), Convert.ToInt32(hp), Convert.ToString(colour));
-                        blocks.Add(b2);
-                    
-                    }
-                }
-
-            
-        
-
-          
-        
-            #endregion
-      
             // start the game engine loop
             gameTimer.Enabled = true;
-        }
-        public void nextlevel()
-        {
-            string X, y, hp, colour;
-
-
-            XmlReader reader = XmlReader.Create("level2.xml");
-
-
-            while (reader.Read())
-
-            {
-
-                if (reader.NodeType == XmlNodeType.Text)
-
-                {
-
-                    X = reader.ReadString();
-
-
-
-                    reader.ReadToNextSibling("y");
-
-                    y = reader.ReadString();
-
-
-
-                    reader.ReadToNextSibling("hp");
-
-                    hp = reader.ReadString();
-
-
-
-                    reader.ReadToNextSibling("colour");
-
-                    colour = reader.ReadString();
-                    Color color = Color.FromName(colour);
-
-                    Block b2 = new Block(Convert.ToInt32(X), Convert.ToInt32(y), Convert.ToInt32(hp), Convert.ToString(colour));
-                    blocks.Add(b2);
-
-
-               
-
-                }
+           
          
-            }
-
+           
         }
+
 
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             //player 1 button presses
-
-                    ;switch (e.KeyCode)
+            switch (e.KeyCode)
             {
                 case Keys.Left:
                     leftArrowDown = true;
@@ -239,6 +164,7 @@ namespace BrickBreaker
         }
         public void PowerUps()
         {
+            //a random power up is chosen
             Random randGen = new Random();
             powerChosen = randGen.Next(0, 5);
 
@@ -279,6 +205,7 @@ namespace BrickBreaker
         {
 
             #region PowerUps
+            //moves the powerup down the screen.
             foreach (PowerUp1 p in power)
             {
                 for (int i = 0; i < power.Count(); i++)
@@ -348,18 +275,14 @@ namespace BrickBreaker
                 ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
                 ball.y = (this.Height - paddle.height) - 85;
 
-               if (lives == 0)
+                if (lives == 0)
                 {
-
-                
-
                     gameTimer.Enabled = false;
                     JuanMethod_OnEnd();
                     //OnEnd();
                 }
                 ballStart = false;
                 ballFollow = false;
-
             }
 
             // Check for collision of ball with paddle, (incl. paddle movement)
@@ -373,20 +296,8 @@ namespace BrickBreaker
 
                     MenuScreen.soundList[8].Play(); //Plays destroy block sound
                     blocks.Remove(b);
-                   
-                            if (blocks.Count == 0)
-                            {
 
-                                nextlevel();
-                        
-
-
-                           }
-
-                  
-
-
-
+                    //once level one is finsihed, go to level two
                     if (blocks.Count == 0 && level == 1)
                     {
 
@@ -399,6 +310,7 @@ namespace BrickBreaker
                         ballStart = false;
                         ballFollow = false;
                     }
+                    //once level two is finsihed, end game.
                     if (blocks.Count == 0 && level == 2)
                     {
                         
@@ -406,7 +318,6 @@ namespace BrickBreaker
                         JuanMethod_OnVictory();
                     }
                         break;
-
                 }
             }
             Refresh();
@@ -454,12 +365,9 @@ namespace BrickBreaker
             e.Graphics.FillRectangle(paddleBrush, paddle.x, paddle.y, paddle.width, paddle.height);
 
             // Draws blocks
-           
             foreach (Block b in blocks)
             {
-               
-             e.Graphics.FillRectangle(blockBrush, b.x, b.y, b.width, b.height) ;
-            
+                e.Graphics.FillRectangle(blockBrush, b.x, b.y, b.width, b.height);
             }
 
             // Draws ball
