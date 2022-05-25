@@ -199,7 +199,9 @@
     <None Include="Resources\Sound Effects\AlarmWav.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\Resources\level1.xml" />
+    <None Include="bin\Debug\Resources\level1.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Music Themes\cams_ambience.wav" />
@@ -260,6 +262,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Images\Victory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Resources\level2.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
