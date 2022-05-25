@@ -19,12 +19,20 @@ namespace BrickBreaker
 
         public static Random rand = new Random();
 
+
         public Block(int _x, int _y, int _hp, string _colour)
+
         {
             x = _x;
             y = _y;
             hp = _hp;
-            colour = _colour;
+           strng = _string;
+            
         }
+
+        //public ventBlock(int _x, int _y, int _hp, Color colour)
+        //{
+
+        //}
     }
 }
