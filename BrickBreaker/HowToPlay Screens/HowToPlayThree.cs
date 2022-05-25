@@ -25,7 +25,7 @@ namespace BrickBreaker
 
             form.Controls.Add(htp2);
             form.Controls.Remove(this);
-            //MenuScreen.soundList[11].Play(); //Plays the extras theme
+            MenuScreen.soundList[11].Play(); //Plays the extras theme
 
             htp2.Location = new Point((form.Width - htp2.Width) / 2, (form.Height - htp2.Height) / 2);
         }

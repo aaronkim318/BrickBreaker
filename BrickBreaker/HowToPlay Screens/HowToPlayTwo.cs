@@ -25,7 +25,7 @@ namespace BrickBreaker
 
             form.Controls.Add(htp);
             form.Controls.Remove(this);
-            //MenuScreen.soundList[11].Play(); //Plays the extras theme
+            MenuScreen.soundList[11].Play(); //Plays the extras theme
 
             htp.Location = new Point((form.Width - htp.Width) / 2, (form.Height - htp.Height) / 2);
         }
@@ -38,7 +38,7 @@ namespace BrickBreaker
 
             form.Controls.Add(htp3);
             form.Controls.Remove(this);
-            //MenuScreen.soundList[11].Play(); //Plays the extras theme
+            MenuScreen.soundList[11].Play(); //Plays the extras theme
 
             htp3.Location = new Point((form.Width - htp3.Width) / 2, (form.Height - htp3.Height) / 2);
         }

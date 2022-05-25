@@ -60,7 +60,6 @@ namespace BrickBreaker
             //----------------Long Sounds----------------//
             SoundPlayer AmongUsMT = new SoundPlayer(Properties.Resources.Main_Theme);
             SoundPlayer CreditsMT = new SoundPlayer(Properties.Resources.cams_ambience);
-            //    SoundPlayer GameOverSound = new SoundPlayer(Properties.Resources.);
             SoundPlayer HowToPlayMT = new SoundPlayer(Properties.Resources.HowToPlay_Theme);
 
             //-------------------------------------------//
@@ -204,7 +203,7 @@ namespace BrickBreaker
 
             form.Controls.Add(htp);
             form.Controls.Remove(this);
-            //soundList[11].Play(); //Plays the extras theme
+            soundList[11].Play(); //Plays the extras theme
 
             htp.Location = new Point((form.Width - htp.Width) / 2, (form.Height - htp.Height) / 2);
         }
