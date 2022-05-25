@@ -54,12 +54,14 @@
             this.playButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.playButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.playButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+
             this.playButton.Font = new System.Drawing.Font("OCR A Extended", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playButton.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.playButton.Location = new System.Drawing.Point(218, 480);
             this.playButton.Margin = new System.Windows.Forms.Padding(4);
+
             this.playButton.Name = "playButton";
-            this.playButton.Size = new System.Drawing.Size(242, 96);
+            this.playButton.Size = new System.Drawing.Size(194, 77);
             this.playButton.TabIndex = 0;
             this.playButton.Text = "Play";
             this.playButton.UseVisualStyleBackColor = false;
@@ -70,12 +72,14 @@
             this.exitButton.BackColor = System.Drawing.Color.Black;
             this.exitButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+
             this.exitButton.Font = new System.Drawing.Font("OCR A Extended", 24F, System.Drawing.FontStyle.Bold);
             this.exitButton.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.exitButton.Location = new System.Drawing.Point(568, 480);
             this.exitButton.Margin = new System.Windows.Forms.Padding(4);
+
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(242, 96);
+            this.exitButton.Size = new System.Drawing.Size(194, 77);
             this.exitButton.TabIndex = 1;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = false;
@@ -166,7 +170,7 @@
             // 
             // MenuScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
@@ -179,6 +183,7 @@
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.playButton);
+
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MenuScreen";
             this.Size = new System.Drawing.Size(1067, 677);
@@ -188,6 +193,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+
             this.ResumeLayout(false);
             this.PerformLayout();
 
