@@ -42,42 +42,43 @@
             // titleLabel
             // 
             this.titleLabel.AutoSize = true;
-            this.titleLabel.BackColor = System.Drawing.SystemColors.MenuText;
+            this.titleLabel.BackColor = System.Drawing.Color.Black;
             this.titleLabel.Font = new System.Drawing.Font("OCR A Extended", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.titleLabel.Location = new System.Drawing.Point(233, 37);
+            this.titleLabel.Location = new System.Drawing.Point(291, 46);
             this.titleLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(308, 66);
+            this.titleLabel.Size = new System.Drawing.Size(378, 83);
             this.titleLabel.TabIndex = 3;
             this.titleLabel.Text = "Credits";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Font = new System.Drawing.Font("OCR A Extended", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(56, 120);
+            this.label1.Location = new System.Drawing.Point(39, 153);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(742, 300);
+            this.label1.Size = new System.Drawing.Size(915, 378);
             this.label1.TabIndex = 4;
             this.label1.Text = "Project manager - Aaron \r\nHead of Ux - Juan\r\nBall class - Aubrey \r\nPowerups - Bil" +
-    "ly\r\nXml (level design) - ???\r\nXml (highscores) - Sam \r\n";
+    "ly\r\nXml (level design) - Sam\r\nXml (highscores) - Sam \r\n";
             // 
             // backMenuButton
             // 
-            this.backMenuButton.BackColor = System.Drawing.Color.Black;
+            this.backMenuButton.BackColor = System.Drawing.Color.DimGray;
             this.backMenuButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.backMenuButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.backMenuButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.backMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backMenuButton.Font = new System.Drawing.Font("OCR A Extended", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backMenuButton.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.backMenuButton.Location = new System.Drawing.Point(290, 449);
+            this.backMenuButton.Location = new System.Drawing.Point(362, 561);
+            this.backMenuButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.backMenuButton.Name = "backMenuButton";
-            this.backMenuButton.Size = new System.Drawing.Size(182, 78);
+            this.backMenuButton.Size = new System.Drawing.Size(228, 98);
             this.backMenuButton.TabIndex = 5;
             this.backMenuButton.Text = "Back";
             this.backMenuButton.UseVisualStyleBackColor = false;
@@ -86,10 +87,10 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.pictureBox1.Location = new System.Drawing.Point(767, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(959, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(33, 587);
+            this.pictureBox1.Size = new System.Drawing.Size(41, 734);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
@@ -97,36 +98,37 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(28, 587);
+            this.pictureBox2.Size = new System.Drawing.Size(35, 734);
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.pictureBox3.Location = new System.Drawing.Point(-41, 0);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Location = new System.Drawing.Point(-51, 0);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(924, 34);
+            this.pictureBox3.Size = new System.Drawing.Size(1155, 42);
             this.pictureBox3.TabIndex = 8;
             this.pictureBox3.TabStop = false;
             // 
             // CreditScreen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.BackgroundImage = global::BrickBreaker.Properties.Resources.Cam_Static;
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.backMenuButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.titleLabel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CreditScreen";
-            this.Size = new System.Drawing.Size(800, 550);
+            this.Size = new System.Drawing.Size(1000, 688);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
