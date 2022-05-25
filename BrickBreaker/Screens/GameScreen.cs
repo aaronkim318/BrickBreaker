@@ -188,7 +188,7 @@ namespace BrickBreaker
                 PowerUp1 slowBall = new PowerUp1(ball.x, ball.y, ball.size, ball.size, "slowBall");
                 power.Add(slowBall);
             }
-            if(powerChosen == 5)
+            if (powerChosen == 5)
             {
                 PowerUp1 slowPaddle = new PowerUp1(ball.x, ball.y, ball.size, ball.size, "slowPaddle");
                 power.Add(slowPaddle);
@@ -287,17 +287,29 @@ namespace BrickBreaker
             {
                 if (ball.BlockCollision(b))
                 {
-                    
-                     MenuScreen.soundList[8].Play(); //Plays destroy block sound
+
+                    MenuScreen.soundList[8].Play(); //Plays destroy block sound
                     blocks.Remove(b);
 
-                    if (blocks.Count == 0 && level < 5)
+                    if (blocks.Count == 0 && level == 1)
                     {
 
                         level++;
-                        levelOne();
+                        levelTwo();
+
+                        ball.x = ((paddle.x - (ball.size / 2)) + (paddle.width / 2));
+                        ball.y = (this.Height - paddle.height) - 85;
+
+                        ballStart = false;
+                        ballFollow = false;
                     }
-                    break;
+                    if (blocks.Count == 0 && level == 2)
+                    {
+                        
+                        gameTimer.Enabled = false;
+                        JuanMethod_OnVictory();
+                    }
+                        break;
                 }
             }
             Refresh();
@@ -353,7 +365,7 @@ namespace BrickBreaker
             // Draws ball
             e.Graphics.FillRectangle(ballBrush, ball.x, ball.y, ball.size, ball.size);
 
-            foreach(PowerUp1 p in power)
+            foreach (PowerUp1 p in power)
             {
                 //if()
             }
@@ -394,6 +406,43 @@ namespace BrickBreaker
             // close reader
             reader.Close();
         }
-    }
 
+        public void levelTwo()
+        {
+            // current level
+
+
+            // variables for block x and y values
+            string blockX;
+            string blockY;
+            int intX;
+            int intY;
+
+            // create xml reader
+            XmlTextReader reader = new XmlTextReader("Resources/level2.xml");
+
+            reader.ReadStartElement("level");
+
+            //Grabs all the blocks for the current level and adds them to the list
+            while (reader.Read())
+            {
+                reader.ReadToFollowing("x");
+                blockX = reader.ReadString();
+
+                reader.ReadToFollowing("y");
+                blockY = reader.ReadString();
+
+                if (blockX != "")
+                {
+                    intX = Convert.ToInt32(blockX);
+                    intY = Convert.ToInt32(blockY);
+                    Block b = new Block(intX, intY, level);
+                    blocks.Add(b);
+                }
+            }
+            // close reader
+            reader.Close();
+        }
+
+    }
 }

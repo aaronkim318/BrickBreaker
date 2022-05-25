@@ -150,7 +150,7 @@ namespace BrickBreaker
                 if (p.speed < 0)
                 {
                     ySpeed *= -1;
-                        if (xSpeed > 2)
+                        if (xSpeed > 4)
                         { 
                         xSpeed -= 2;
                         }
