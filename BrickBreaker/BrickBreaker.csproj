@@ -188,6 +188,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+
+    <None Include="level1.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+
     <None Include="Resources\Cam Static.gif" />
   </ItemGroup>
   <ItemGroup>
@@ -262,6 +269,7 @@
     <Content Include="bin\Debug\Resources\level2.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
