@@ -105,7 +105,11 @@ namespace BrickBreaker
 
             // start the game engine loop
             gameTimer.Enabled = true;
+           
+         
+           
         }
+
 
         private void GameScreen_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
@@ -160,6 +164,7 @@ namespace BrickBreaker
         }
         public void PowerUps()
         {
+            //a random power up is chosen
             Random randGen = new Random();
             powerChosen = randGen.Next(0, 5);
 
@@ -200,6 +205,7 @@ namespace BrickBreaker
         {
 
             #region PowerUps
+            //moves the powerup down the screen.
             foreach (PowerUp1 p in power)
             {
                 for (int i = 0; i < power.Count(); i++)
@@ -290,6 +296,7 @@ namespace BrickBreaker
                     MenuScreen.soundList[8].Play(); //Plays destroy block sound
                     blocks.Remove(b);
 
+                    //once level one is finsihed, go to level two
                     if (blocks.Count == 0 && level == 1)
                     {
 
@@ -302,6 +309,7 @@ namespace BrickBreaker
                         ballStart = false;
                         ballFollow = false;
                     }
+                    //once level two is finsihed, end game.
                     if (blocks.Count == 0 && level == 2)
                     {
                         
